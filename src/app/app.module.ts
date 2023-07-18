@@ -30,7 +30,6 @@ import { HttpClientModule } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
 import { RequestComponent } from './components/profile-page/friends/request/request.component';
 import { RegisterBusinessComponent } from './components/auth/register-business/register-business.component';
-import { NgxMaterialTimepickerModule } from 'ngx-material-timepicker';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { NgbModule, NgbTimepickerModule } from '@ng-bootstrap/ng-bootstrap';
 
@@ -69,7 +68,6 @@ import { NgbModule, NgbTimepickerModule } from '@ng-bootstrap/ng-bootstrap';
     ReactiveFormsModule,
     HttpClientModule,
     CommonModule,
-    NgxMaterialTimepickerModule,
     NoopAnimationsModule,
     NgbModule,
     NgbTimepickerModule
