@@ -1,0 +1,39 @@
+<div class="container">
+  <div class="section">
+    <div class="friends-container">
+      <h2 (click)="toggleFriends()">Friends</h2>
+      <ng-container *ngIf="showFriends">
+        <div *ngIf="friends.length > 0" class="friends-list">
+          <app-friend *ngFor="let friend of friends" [friend]="friend"></app-friend>
+        </div>
+        <div *ngIf="friends.length === 0">
+          No friends yet!
+        </div>
+      </ng-container>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="friends-container">
+      <h2 (click)="toggleFriendRequests()">Friend Requests</h2>
+      <ng-container *ngIf="showFriendRequests">
+        <div *ngIf="requests.length > 0" class="friends-list">
+          <app-request *ngFor="let request of requests" [userRequest]="request"></app-request>
+        </div>
+        <div *ngIf="requests.length === 0">
+          No requests yet!
+        </div>
+      </ng-container>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="friends-container">
+      <h2 (click)="toggleAddFriends()">Add Friends</h2>
+      <ng-container *ngIf="showAddFriends">
+        <p>Add friends works!</p>
+      </ng-container>
+    </div>
+  </div>
+</div>
+

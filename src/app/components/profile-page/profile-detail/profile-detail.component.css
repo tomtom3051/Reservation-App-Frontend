@@ -1,0 +1,32 @@
+.social-profile {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  width: 300px;
+  height: 400px;
+  border: 1px solid #444;
+  border-radius: 10px;
+  padding: 20px;
+}
+
+.social-profile img {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  margin-bottom: 20px;
+}
+
+.add-friend-button {
+  padding: 10px 20px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.add-friend-button:hover {
+  background-color: #45a049;
+}

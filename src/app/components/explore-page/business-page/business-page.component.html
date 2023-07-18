@@ -1,0 +1,27 @@
+<div class="nav-bar">
+  <button (click)="goBack()">Back</button>
+</div>
+<div class="business-detail">
+  <div class="business-image">
+    <img [src]="business.profileImgPath" alt="business image">
+  </div>
+  <div class="business-info">
+    <h2 class="business-name">{{ business.name }}</h2>
+    <p class="business-description">{{ business.description }}</p>
+    <p class="business-description">{{ business.email }}</p>
+    <p>{{ business.location }}</p>
+    <button (click)="changeFavorite()">{{ isFavorite ? 'Remove Favorite' : 'Add Favorite' }}</button>
+  </div>
+</div>
+
+<hr>
+
+<app-business-menu></app-business-menu>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+</div>

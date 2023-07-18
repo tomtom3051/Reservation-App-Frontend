@@ -1,0 +1,59 @@
+<div class="container">
+  <form (submit)="onRegister(registerForm)" #registerForm="ngForm" *ngIf="!isLoading">
+    <h3>Register:</h3>
+    <br>
+
+    <div>
+      <label for="name">Business Name:</label>
+      <input
+        name="name"
+        ngModel
+        type="text"
+        placeholder="name"
+        #nameInput="ngModel"
+        required>
+      <div class="error-message" *ngIf="nameInput.invalid && nameInput.touched">
+        Please enter a valid name.
+      </div>
+    </div>
+    <br>
+
+    <div>
+      <label for="email">Business E-mail:</label>
+      <input
+        name="email"
+        ngModel
+        type="email"
+        placeholder="E-mail"
+        #emailInput="ngModel"
+        required
+        email>
+      <div class="error-message" *ngIf="emailInput.invalid && emailInput.touched">
+        Please enter a valid email.
+      </div>
+    </div>
+    <br>
+
+    <div>
+      <label for="password">Password:</label>
+      <input
+        name="password"
+        ngModel
+        type="password"
+        placeholder="Password"
+        #passwordInput="ngModel"
+        required>
+        <div class="error-message" *ngIf="passwordInput.invalid && passwordInput.touched">
+          Please enter a valid password.
+        </div>
+    </div>
+    <br>
+
+    <button
+      type="submit"
+      [disabled]="registerForm.invalid"
+      *ngIf="!isLoading">Register</button>
+  </form>
+</div>
+
+

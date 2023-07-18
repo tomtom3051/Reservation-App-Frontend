@@ -1,0 +1,50 @@
+<p>schedule works!</p>
+<p>Run a query in the reservation database to retrieve information on all reservations made by this user in the next week</p>
+<p>Order the results by date of occurence and display all necessary info in a special component</p>
+<p>component can be clicked to expand, doing so can let you visit page of business where the res takes place or shows a qr code to verify you made the reservation if needed.</p>
+
+<br>
+<br>
+<br>
+
+<h1>Testing Time Pickers:</h1>
+
+<br>
+<br>
+
+<div class="time-container">
+  <div class="mb-3">
+    <ngb-timepicker [formControl]="openingHours" required></ngb-timepicker>
+    <div *ngIf="openingHours.valid" class="small form-text text-success">Great choice</div>
+    <div *ngIf="openingHours.errors" class="small form-text text-danger">
+      <div *ngIf="openingHours.errors['required']">Select some time during lunchtime</div>
+      <div *ngIf="openingHours.errors['tooLate']">Oh no, it's way too late</div>
+      <div *ngIf="openingHours.errors['tooEarly']">It's a bit too early</div>
+    </div>
+  </div>
+
+  <div class="mb-3">
+    <ngb-timepicker [formControl]="closingHours" required></ngb-timepicker>
+    <div *ngIf="closingHours.valid" class="small form-text text-success">Great choice</div>
+    <div *ngIf="closingHours.errors" class="small form-text text-danger">
+      <div *ngIf="closingHours.errors['required']">Select some time during lunchtime</div>
+      <div *ngIf="closingHours.errors['tooLate']">Oh no, it's way too late</div>
+      <div *ngIf="closingHours.errors['tooEarly']">It's a bit too early</div>
+    </div>
+  </div>
+
+  <div *ngIf="openingHours.valid && closingHours.valid">
+    <ul>
+      <li>{{ openingHours.value | json }}</li>
+      <li>{{ oHours }}</li>
+      <li>{{ closingHours.value | json }}</li>
+      <li>{{ cHours }}</li>
+      <li>{{ test | json }}</li>
+    </ul>
+  </div>
+</div>
+
+
+
+
+

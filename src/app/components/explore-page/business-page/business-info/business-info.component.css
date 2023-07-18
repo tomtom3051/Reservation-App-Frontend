@@ -1,0 +1,23 @@
+.business-hours-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+}
+
+table {
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+th, td {
+  padding: 10px;
+  text-align: center;
+  /* Remove border to remove outline on table */
+  border: 1px solid black;
+}
+
+th {
+  background-color: #5e5e5e;
+  color: #fff;
+}

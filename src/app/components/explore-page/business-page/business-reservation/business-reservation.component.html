@@ -1,0 +1,151 @@
+<!-- <div class="container">
+    <div>
+        <div>
+            <form>
+                <h2>Make A Reservation!</h2>
+                <div id="reservation-data">
+                    <div class="form-group">
+                        <label for="date">Reservation date & time</label>
+                        <div class="input-group">
+                            <input
+                              type="date"
+                              id="date"
+                              class="form-control"
+                              [(ngModel)] = "reservationDate"
+                              name="date"
+                              [min]="today">
+                            <input
+                              type="time"
+                              id="time"
+                              class="form-control"
+                              [(ngModel)] = "reservationTime"
+                              name="time">
+                          </div>
+                    </div>
+                    <div *ngIf="friends.length > 0" class = form-group>
+                        <label for="friends">Invite friends</label>
+                        <div class="dropdown-container">
+                          <div class="dropdown">
+                            <button class="dropdown-toggle" (click)="toggleDropDown()">
+                              Select friends
+                            </button>
+                            <ul class="dropdown-menu" [class.show]="friendsIsOpen">
+                              <li *ngFor="let friend of friends" (click)="inviteFriend(friend)">
+                                <img [src]="friend.profileImgPath" alt="User profile picture">
+                                <span>{{ friend.name }}</span>
+                              </li>
+                            </ul>
+                          </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div *ngIf="friendsAdded.length > 0">
+                  <p>This works</p>
+                </div>
+                <div class="reservation-button-container">
+                  <button
+                    class="reservation-button"
+                    type="submit">Make Reservation</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div> -->
+
+<div class="container">
+  <form>
+    <h2>Make A Reservation!</h2>
+
+    <div class="form-group">
+      <label for="date">Reservation date & time</label>
+    </div>
+
+      <div class="input-group">
+
+        <div class="date-picker">
+          <input
+            type="date"
+            id="date"
+            class="form-control"
+            [(ngModel)]="reservationDate"
+            (ngModelChange)="getSelectedWeekday($event)"
+            name="date"
+            [min]="today">
+        </div>
+
+
+        <div class="time-picker">
+          <ngb-timepicker class="center-content" [formControl]="reservationTime" required></ngb-timepicker>
+          <div *ngIf="reservationTime.valid" class="small form-text text-success">Great choice!</div>
+          <div *ngIf="reservationTime.errors" class="small form-text text-danger">
+            <div *ngIf="reservationTime.errors['required']">Please enter a reservation time!</div>
+            <div *ngIf="reservationTime.errors['invalid']">This business is not open at this time!</div>
+          </div>
+        </div>
+
+      </div>
+
+
+      <div *ngIf="friends.length > 0" class = form-group>
+
+        <label for="friends">Invite friends</label>
+
+        <div class="dropdown-container">
+
+          <div class="dropdown">
+            <button class="dropdown-toggle" (click)="toggleDropDown()">
+              Select friends
+            </button>
+
+            <ul class="dropdown-menu" [class.show]="friendsIsOpen">
+
+              <li *ngFor="let friend of friends" (click)="inviteFriend(friend)">
+                <img [src]="friend.profileImgPath" alt="User profile picture">
+                <span>{{ friend.name }}</span>
+              </li>
+
+            </ul>
+
+          </div>
+
+        </div>
+
+    </div>
+
+    <div class="friends-added-container">
+
+      <div *ngIf="friendsAdded.length > 0">
+        <h5>Invited friends:</h5>
+        <div *ngFor="let friend of friendsAdded" class="friend">
+          <img [src]="friend.profileImgPath" alt="User profile picture" class="profile-img">
+          <div class="name-container">
+            <span>{{ friend.name }}</span>
+          </div>
+          <button class="delete-btn" (click)="uninvite(friend)">Delete</button>
+        </div>
+      </div>
+
+    </div>
+
+
+    <div class="reservation-button-container">
+
+      <button
+        class="reservation-button"
+        type="submit">Make Reservation</button>
+
+    </div>
+
+  </form>
+
+</div>
+
+
+<h1>TODO:</h1>
+<li>Show a list off all tables/ reservable objects if needed</li>
+<li>else show a ticket for a certain time/day, could use the same database except only one item is stored</li>
+<br>
+<h1>Known Bugs:</h1>
+<li>If I make a res on wednesday at 21:00 and change to tuesday it is allowed even if bus is closed at 21:00 on tues</li>
+<li>No handling for when bus is closed</li>

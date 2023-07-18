@@ -1,0 +1,21 @@
+<div class="profile-menu">
+
+  <a
+    routerLinkActive="active"
+    routerLink="favorites"
+    class="profile-menu-item">Favorites</a>
+
+  <a
+    *ngIf="pageUserId === authUserId"
+    routerLinkActive="active"
+    routerLink="friends"
+    class="profile-menu-item">Friends</a>
+
+  <a
+    *ngIf="pageUserId === authUserId"
+    routerLinkActive="active"
+    routerLink="schedule"
+    class="profile-menu-item">Schedule</a>
+
+  <!-- <a class="profile-menu-item">posts/reviews</a> -->
+</div>

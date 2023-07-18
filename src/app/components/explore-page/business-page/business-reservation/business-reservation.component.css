@@ -1,0 +1,197 @@
+.container {
+  display: block;
+  justify-content: center;
+  width: 100%;
+  margin-top: 10px;
+  /* align-items: center;
+  height: 100vh; */
+}
+
+form {
+  background-color: #1a1a1a;
+  color: #fff;
+  border-radius: 5px;
+  padding: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+  text-align: center;
+  margin: 20px;
+}
+
+h5 {
+  text-align: center;
+  margin: 20px;
+}
+
+.input-group {
+  display: flex;
+}
+
+.date-picker,
+.time-picker {
+  flex: 1;
+  margin-right: 10px;
+}
+
+.date-picker input,
+.time-picker ngb-timepicker {
+  width: 100%;
+  text-align: center;
+}
+
+.center-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+label {
+  font-weight: bold;
+  display: flex;
+  justify-content: center;
+  margin: 20px;
+}
+
+
+.form-control {
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  background-color: #1a1a1a;
+  color: #fff;
+}
+
+.reservation-button {
+  background-color: #1b0a0a;
+  color: #fff;
+  padding: 10px 20px;
+  border-radius: 20px;
+  font-size: 18px;
+  margin-top: 20px;
+  cursor: pointer;
+
+}
+
+.reservation-button:hover {
+  background-color: #444;
+}
+
+.reservation-button-container {
+  display: flex;
+  justify-content: center;
+  /* padding-bottom: 20px; */
+}
+
+.dropdown-container {
+  display: flex;
+  justify-content: center;
+  /* padding-bottom: 20px; */
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+
+
+.dropdown-toggle {
+  display: block;
+  width: 100%;
+  background-color: #1a1a1a;
+  border: 1px solid #ccc;
+  color: #fff;
+  padding: 8px 16px;
+  font-size: 14px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.dropdown-toggle:hover {
+  background-color: #2e2d2d;
+}
+
+.dropdown-menu {
+  position: absolute;
+  background-color: #1a1a1a;
+  color: #fff;
+  border: 1px solid #ccc;
+  border-top: none;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  width: 200px;
+  max-height: 200px;
+  overflow-y: auto;
+  display: none;
+  border-radius: 0 0 5px 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.dropdown-menu.show {
+  display: block;
+}
+
+.dropdown-menu li {
+  display: flex;
+  align-items: center;
+  padding: 8px 16px;
+  cursor: pointer;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.dropdown-menu li img {
+  width: 24px;
+  height: 24px;
+  margin-right: 8px;
+}
+
+.dropdown-menu li:hover {
+  background-color: #2e2d2d;
+}
+
+.friends-added-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* height: 100vh; */
+}
+
+.friend {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 10px; /* Optional margin for spacing between friends */
+}
+
+.profile-img {
+  width: 50px; /* Adjust the size as needed */
+  height: 50px; /* Adjust the size as needed */
+  border-radius: 50%;
+}
+
+.friend-name {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.delete-btn {
+  background-color: red;
+  color: white;
+  padding: 5px 10px;
+  border: none;
+  border-radius: 5px;
+}
+
+button:hover {
+  transform: scale(1.05);
+}

@@ -1,0 +1,58 @@
+<div class="container">
+  <form (submit)="onSignup(signupForm)" #signupForm="ngForm" *ngIf="!isLoading">
+    <h3>Signup</h3>
+    <br>
+    <div>
+      <label for="username">Username:</label>
+      <input
+        name="username"
+        ngModel
+        type="text"
+        placeholder="Username"
+        #usernameInput="ngModel"
+        required>
+      <div class="error-message" *ngIf="usernameInput.invalid && usernameInput.touched">
+        Please enter a valid username.
+      </div>
+    </div>
+    <br>
+
+    <div>
+      <label for="email">E-mail:</label>
+      <input
+        name="email"
+        ngModel
+        type="email"
+        placeholder="E-mail"
+        #emailInput="ngModel"
+        required
+        email>
+      <div class="error-message" *ngIf="emailInput.invalid && emailInput.touched">
+        Please enter a valid email.
+      </div>
+    </div>
+    <br>
+
+    <div>
+      <label for="password">Password:</label>
+      <input
+        name="password"
+        ngModel
+        type="password"
+        placeholder="Password"
+        #passwordInput="ngModel"
+        required>
+        <div class="error-message" *ngIf="passwordInput.invalid && passwordInput.touched">
+          Please enter a valid password.
+        </div>
+    </div>
+    <br>
+
+    <button
+      type="submit"
+      [disabled]="signupForm.invalid"
+      *ngIf="!isLoading">Signup</button>
+  </form>
+</div>
+
+

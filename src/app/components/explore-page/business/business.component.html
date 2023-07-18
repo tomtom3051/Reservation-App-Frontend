@@ -1,0 +1,13 @@
+<div
+    class="business-container"
+    [routerLink]="[business.id]">
+    <img
+        src="{{ business.profileImgPath }}"
+        class="business-image">
+
+    <div class="business-text">
+        <h2 class="business-name">{{ business.name }}</h2>
+        <p class="business-description">{{ business.description }}</p>
+    </div>
+</div>
+

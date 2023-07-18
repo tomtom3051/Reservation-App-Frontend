@@ -1,0 +1,15 @@
+<div class="favorites-outline">
+  <h1 class="favorites-title">Favorites:</h1>
+  <br>
+  <div *ngIf="favorites.length > 0">
+    <app-favorite
+      *ngFor="let fav of favorites"
+      [business]="fav"></app-favorite>
+    <!-- <app-favorite-item
+      *ngFor="let fav of favorites"
+      [business]="fav"
+  ></app-favorite-item> -->
+  </div>
+
+  <p *ngIf="favorites.length === 0">You have no favorites yet, add them in the explore section!</p>
+</div>

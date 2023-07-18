@@ -1,0 +1,10 @@
+<div class="menu-item-container">
+  <img src="{{ item.image }}" class="image-container">
+  <div class="item-container">
+    <div class="item-text">
+      <h2 class="item-name">{{ item.name }}</h2>
+      <p class="item-description">{{ item.description }}</p>
+    </div>
+    <div class="item-price">{{ item.price | currency: item.currency }}</div>
+  </div>
+</div>

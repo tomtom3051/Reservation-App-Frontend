@@ -1,0 +1,12 @@
+<div class="friend-request">
+  <div class="profile-picture">
+    <img [src]="userRequest.profileImgPath" alt="Profile Picture">
+  </div>
+  <div class="user-details">
+    <h3>{{ userRequest.name }}</h3>
+  </div>
+  <div class="buttons">
+    <button class="accept-button" (click)="acceptRequest()">Accept</button>
+    <button class="decline-button" (click)="declineRequest()">Decline</button>
+  </div>
+</div>

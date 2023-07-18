@@ -1,0 +1,13 @@
+<div style="display: flex; align-items: center; justify-content: center;">
+  <div class="social-profile">
+      <img src="{{ user.profileImgPath }}"  alt="Profile Picture">
+      <h2>{{ user.name }}</h2>
+      <p>ID: {{ user.id }}</p>
+      <p>Description: {{ user.description }}</p>
+      <button
+        class="add-friend-button"
+        (click)="changeFriend()"
+        *ngIf="!myProfile">{{ isFriend ? 'Remove Friend' : 'Add Friend' }}</button>
+    </div>
+</div>
+
