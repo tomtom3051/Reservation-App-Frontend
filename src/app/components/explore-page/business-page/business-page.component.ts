@@ -35,7 +35,8 @@ export class BusinessPageComponent implements OnInit {
             password: businessData.password,
             profileImgPath: businessData.profileImgPath,
             description: businessData.description,
-            location: businessData.location
+            longitude: businessData.longitude,
+            latitude: businessData.latitude
           }
         });
       }

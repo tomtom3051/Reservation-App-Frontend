@@ -81,6 +81,7 @@
           <div *ngIf="reservationTime.errors" class="small form-text text-danger">
             <div *ngIf="reservationTime.errors['required']">Please enter a reservation time!</div>
             <div *ngIf="reservationTime.errors['invalid']">This business is not open at this time!</div>
+            <div *ngIf="reservationTime.errors['timePast']">The selected time is in the past!</div>
           </div>
         </div>
 
@@ -147,5 +148,4 @@
 <li>else show a ticket for a certain time/day, could use the same database except only one item is stored</li>
 <br>
 <h1>Known Bugs:</h1>
-<li>If I make a res on wednesday at 21:00 and change to tuesday it is allowed even if bus is closed at 21:00 on tues</li>
-<li>No handling for when bus is closed</li>
+<li>No handling for when business is closed</li>

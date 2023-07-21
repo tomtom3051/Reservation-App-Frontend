@@ -45,7 +45,8 @@ export class BusinessService {
                 password: business.password,
                 profileImgPath: business.profileImgPath,
                 description: business.description,
-                location: business.location,
+                longitude: business.longitude,
+                latitude: business.latitude
               };
             })
           };
@@ -68,7 +69,8 @@ export class BusinessService {
       password: string;
       profileImgPath: string;
       description: string;
-      location: string;
+      longitude: any;
+      latitude: any;
     }>('http://localhost:3000/business/' + id);
   }
 

@@ -13,6 +13,7 @@ export class BusinessModel {
     public password: string,
     public profileImgPath: string,
     public description: string,
-    public location: string
+    public longitude: any,
+    public latitude: any
   ) {}
 }
