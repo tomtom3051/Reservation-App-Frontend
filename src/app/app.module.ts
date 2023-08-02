@@ -32,6 +32,9 @@ import { RequestComponent } from './components/profile-page/friends/request/requ
 import { RegisterBusinessComponent } from './components/auth/register-business/register-business.component';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { NgbModule, NgbTimepickerModule } from '@ng-bootstrap/ng-bootstrap';
+import { AgmCoreModule } from '@agm/core';
+import { TimePickerComponent } from './components/auth/register-business/time-picker/time-picker.component';
+import { InfoFormComponent } from './components/auth/register-business/info-form/info-form.component';
 
 @NgModule({
   declarations: [
@@ -59,7 +62,9 @@ import { NgbModule, NgbTimepickerModule } from '@ng-bootstrap/ng-bootstrap';
     ProfileMenuComponent,
     ScheduleComponent,
     RequestComponent,
-    RegisterBusinessComponent
+    RegisterBusinessComponent,
+    TimePickerComponent,
+    InfoFormComponent
   ],
   imports: [
     BrowserModule,
@@ -70,7 +75,11 @@ import { NgbModule, NgbTimepickerModule } from '@ng-bootstrap/ng-bootstrap';
     CommonModule,
     NoopAnimationsModule,
     NgbModule,
-    NgbTimepickerModule
+    NgbTimepickerModule,
+    AgmCoreModule.forRoot({
+      apiKey: 'AIzaSyAdhtoKDi47LSipXPmij_N9ZA0Ti9ouOvc'
+    })
+
   ],
   providers: [],
   bootstrap: [AppComponent]

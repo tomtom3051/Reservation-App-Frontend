@@ -1,0 +1,22 @@
+<div class="day-container">
+  <h2>{{ day.day }}</h2>
+  <div class="time-picker">
+    <div class="time-picker-item">
+      <label for="openingTime">Opening Time</label>
+      <ngb-timepicker [formControl]="openingTime" id="openingTime"></ngb-timepicker>
+      <div *ngIf="openingTime.errors" class="small form-text danger">
+        <div class="error" *ngIf="openingTime.errors['late']">Opening time should be before closing time!</div>
+      </div>
+    </div>
+    <div class="time-picker-item">
+      <label for="closingTime">Closing Time</label>
+      <ngb-timepicker [formControl]="closingTime" id="closingTime"></ngb-timepicker>
+      <div *ngIf="closingTime.errors" class="small form-text danger">
+        <div class="error" *ngIf="closingTime.errors['early']">Closing time should be after opening time!</div>
+      </div>
+    </div>
+  </div>
+  <hr>
+</div>
+
+

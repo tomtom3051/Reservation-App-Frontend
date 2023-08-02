@@ -1,4 +1,3 @@
-<br>
 <div class="business-hours-container">
   <h2>Opening Hours</h2>
   <table>
@@ -44,12 +43,16 @@
   </table>
 </div>
 
-<br>
-<br>
-<h3>Information page:</h3>
+<div *ngIf="lat && lng">
+  <div class="location-container">
+    <h2>Location:</h2>
+  </div>
 
-<p>TODO for minimum viable product:</p>
-<li>Add google maps marker</li>
-<li>For user and business location use the tutorial below</li>
-<li>https://www.youtube.com/watch?v=orjkt0VHt1c</li>
+  <div>
+    <agm-map [latitude]="lat" [longitude]="lng">
+      <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>
+    </agm-map>
+  </div>
+</div>
+
 

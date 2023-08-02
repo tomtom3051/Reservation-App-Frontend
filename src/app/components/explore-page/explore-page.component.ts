@@ -19,10 +19,11 @@ export class ExplorePageComponent implements OnInit, OnDestroy {
     this.businessSub = this.businessService.getBusinessUpdateListener()
       .subscribe((businessData: { businesses: BusinessModel[] }) => {
         this.businesses = businessData.businesses;
+        // console.log(this.businesses);
       });
   }
 
   ngOnDestroy(): void {
-      this.businessSub.unsubscribe();
+    this.businessSub.unsubscribe();
   }
 }

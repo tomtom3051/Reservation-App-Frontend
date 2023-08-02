@@ -21,3 +21,15 @@ th {
   background-color: #5e5e5e;
   color: #fff;
 }
+
+
+.location-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+}
+
+agm-map {
+  height: 400px;
+}

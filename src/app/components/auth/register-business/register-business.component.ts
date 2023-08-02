@@ -17,6 +17,7 @@ export class RegisterBusinessComponent implements OnInit, OnDestroy {
   ) {}
 
   ngOnInit(): void {
+    //I don't know why this is here
     this.authSub = this.authService.getAuthStatusListner().subscribe(
       authStatus => {
         this.isLoading = false;

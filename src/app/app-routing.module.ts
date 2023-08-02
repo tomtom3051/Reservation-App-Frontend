@@ -15,12 +15,14 @@ import { FavoritesComponent } from './components/profile-page/favorites/favorite
 import { FriendsComponent } from './components/profile-page/friends/friends.component';
 import { ScheduleComponent } from './components/profile-page/schedule/schedule.component';
 import { RegisterBusinessComponent } from './components/auth/register-business/register-business.component';
+import { InfoFormComponent } from './components/auth/register-business/info-form/info-form.component';
 
 const routes: Routes = [
   { path: '', component: AuthComponent },
   { path: 'login', component: LoginComponent },
   { path: 'signup', component: SignupComponent },
   { path: 'register-business', component: RegisterBusinessComponent },
+  { path: 'business-info', component: InfoFormComponent },
   { path: 'explore', component: ExplorePageComponent, canActivate: [AuthGuard] },
   { path: 'explore/:id', component: BusinessPageComponent, canActivate: [AuthGuard], children: [
     { path: '', redirectTo: 'info', pathMatch: 'full' },

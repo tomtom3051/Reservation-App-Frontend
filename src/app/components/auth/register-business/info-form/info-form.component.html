@@ -1,0 +1,35 @@
+<div class="container">
+  <form (submit)="onRegister(infoForm)" #infoForm="ngForm">
+    <h3>Provide Business Information:</h3>
+
+    <div>
+      <label for="description">Business Description</label>
+      <input
+        name="description"
+        ngModel
+        type="text"
+        placeholder="Description"
+        #descriptionInput="ngModel">
+    </div>
+
+    <h3>Opening Hours:</h3>
+    <div>
+      <app-time-picker
+       *ngFor="let day of days"
+       [day]="day"></app-time-picker>
+    </div>
+
+    <h3>Location:</h3>
+
+    <div>
+      <agm-map *ngIf="!isLoading" [latitude]="lat" [longitude]="lng" (mapClick)="onChoseLocation($event)">
+        <agm-marker *ngIf="!isLoading" [latitude]="lat" [longitude]="lng"></agm-marker>
+      </agm-map>
+    </div>
+
+    <button
+      type="submit"
+      [disabled]="infoForm.invalid"
+      *ngIf="!isLoading">Save Info!</button>
+  </form>
+</div>

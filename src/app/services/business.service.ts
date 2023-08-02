@@ -74,6 +74,13 @@ export class BusinessService {
     }>('http://localhost:3000/business/' + id);
   }
 
+  getBusinessLocation(id: number) {
+    return this.http.get<{
+      latitude: string;
+      longitude: string;
+    }>('http://localhost:3000/business/location/' + id);
+  }
+
   getCurrentPageId() {
     return this.currentId;
   }

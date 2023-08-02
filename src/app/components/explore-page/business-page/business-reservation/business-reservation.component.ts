@@ -120,8 +120,8 @@ export class BusinessReservationComponent implements OnInit, OnDestroy {
       .subscribe(
         hoursData => {
               this.getMaxMinTime(hoursData);
-              console.log(this.openingHour, this.openingMinute);
-              console.log(this.closingHour, this.closingMinute);
+              // console.log(this.openingHour, this.openingMinute);
+              // console.log(this.closingHour, this.closingMinute);
               this.reservationTime.updateValueAndValidity();
         }
         );

@@ -22,14 +22,23 @@ export class BusinessInfoComponent implements OnInit, OnDestroy {
   hours: BusinessHoursModel[] = [];
   hoursSub: Subscription;
 
+  //Test values:
+  public lat: number;
+  public lng: number;
+
   constructor (
     private businessHoursService: BusinessHoursService,
     private businessService: BusinessService
   ) {}
 
   ngOnInit(): void {
+    //Get business id
     this.id = this.businessService.getCurrentPageId();
+
+    //Use ID to find businesses opening/closing hours
     this.businessHoursService.getBusinessHours(this.id);
+
+    //Use this sub to format the hours so they can be used
     this.hoursSub = this.businessHoursService.getHoursUpdateListener()
       .subscribe((hoursData: { hours: BusinessHoursModel[] }) => {
         this.hours = hoursData.hours;
@@ -76,6 +85,13 @@ export class BusinessInfoComponent implements OnInit, OnDestroy {
           this.sunday.closing_time = this.formatTime(this.sunday.closing_time);
         }
       });
+
+     //Get lat and lng from business service
+    this.businessService.getBusinessLocation(this.id).subscribe((locationData) => {
+      // console.log(locationData);
+      this.lat = parseFloat(locationData.latitude),
+      this.lng = parseFloat(locationData.longitude)
+    });
   }
 
   formatTime(time: string): string {
