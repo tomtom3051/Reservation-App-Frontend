@@ -5,3 +5,13 @@
 .mb-3 {
   margin-left: 20px;
 }
+
+.svg-container {
+  padding: 20px;
+}
+
+.svg {
+  border: 1px solid black;
+  height: 200px;
+  width: 500px;
+}

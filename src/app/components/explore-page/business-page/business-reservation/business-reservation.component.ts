@@ -32,6 +32,7 @@ export class BusinessReservationComponent implements OnInit, OnDestroy {
   public openingMinute: number;
   public closingHour: number;
   public closingMinute: number;
+  private closed: boolean = false;
 
   //boolean shows whether friends dropdown is open or closed
   friendsIsOpen = false;
@@ -73,8 +74,8 @@ export class BusinessReservationComponent implements OnInit, OnDestroy {
 
     this.businessHoursService.getBusinessHoursForDay(this.pageId, this.weekday).subscribe(hoursData => {
       this.getMaxMinTime(hoursData);
-      console.log(this.openingHour, this.openingMinute);
-      console.log(this.closingHour, this.closingMinute);
+      // console.log(this.openingHour, this.openingMinute);
+      // console.log(this.closingHour, this.closingMinute);
     });
 
     //today needed for [min] in html to ensure no one can make a reservation in the past
@@ -94,6 +95,10 @@ export class BusinessReservationComponent implements OnInit, OnDestroy {
 
     if (!value) {
       return null;
+    }
+
+    if (this.closed) {
+      return { closed: true }
     }
 
     if (this.today === this.reservationDate && ((value.hour < currentDate.getHours()) || (value.hour === currentDate.getHours() && value.minute < currentDate.getMinutes()))) {
@@ -117,15 +122,21 @@ export class BusinessReservationComponent implements OnInit, OnDestroy {
     this.weekday = dateObj.toLocaleString('en-US', { weekday: 'long'});
 
     this.businessHoursService.getBusinessHoursForDay(this.pageId, this.weekday)
-      .subscribe(
-        hoursData => {
-              this.getMaxMinTime(hoursData);
-              // console.log(this.openingHour, this.openingMinute);
-              // console.log(this.closingHour, this.closingMinute);
-              this.reservationTime.updateValueAndValidity();
+      .subscribe({
+        next: hoursData => {
+          // console.log(hoursData);
+          this.closed = false;
+          this.getMaxMinTime(hoursData);
+          this.reservationTime.updateValueAndValidity();
+        },
+        error: error => {
+          // console.log(error);
+          if (error.status === 404) {
+            this.closed = true;
+            this.reservationTime.updateValueAndValidity();
+          }
         }
-        );
-
+      });
   }
 
   getMaxMinTime(hoursData: { opening_time: string, closing_time: string }) {

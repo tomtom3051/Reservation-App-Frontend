@@ -19,17 +19,18 @@
        [day]="day"></app-time-picker>
     </div>
 
-    <h3>Location:</h3>
 
-    <div>
-      <agm-map *ngIf="!isLoading" [latitude]="lat" [longitude]="lng" (mapClick)="onChoseLocation($event)">
-        <agm-marker *ngIf="!isLoading" [latitude]="lat" [longitude]="lng"></agm-marker>
+
+    <div *ngIf="lat && lng">
+      <h3>Location:</h3>
+      <agm-map [latitude]="lat" [longitude]="lng" (mapClick)="onChoseLocation($event)">
+        <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>
       </agm-map>
     </div>
 
     <button
       type="submit"
       [disabled]="infoForm.invalid"
-      *ngIf="!isLoading">Save Info!</button>
+      >Save Info!</button>
   </form>
 </div>

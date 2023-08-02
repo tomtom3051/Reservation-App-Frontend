@@ -195,3 +195,9 @@ label {
 button:hover {
   transform: scale(1.05);
 }
+
+.error-message {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

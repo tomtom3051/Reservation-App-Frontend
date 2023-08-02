@@ -8,7 +8,6 @@ import { BusinessHoursModel } from 'src/app/models/businessHours.model';
   styleUrls: ['./info-form.component.css']
 })
 export class InfoFormComponent implements OnInit {
-  isLoading = true;
   lat: number;
   lng: number;
   days: BusinessHoursModel[] = [
@@ -55,10 +54,9 @@ export class InfoFormComponent implements OnInit {
     navigator.geolocation.getCurrentPosition((position) => {
       this.lat = position.coords.latitude;
       this.lng = position.coords.longitude;
-      this.isLoading = false;
-      console.log(
-        `lat: ${position.coords.latitude}, lon: ${position.coords.longitude}`
-      );
+      // console.log(
+      //   `lat: ${position.coords.latitude}, lon: ${position.coords.longitude}`
+      // );
     });
   }
 

@@ -79,9 +79,10 @@
           <ngb-timepicker class="center-content" [formControl]="reservationTime" required></ngb-timepicker>
           <div *ngIf="reservationTime.valid" class="small form-text text-success">Great choice!</div>
           <div *ngIf="reservationTime.errors" class="small form-text text-danger">
-            <div *ngIf="reservationTime.errors['required']">Please enter a reservation time!</div>
-            <div *ngIf="reservationTime.errors['invalid']">This business is not open at this time!</div>
-            <div *ngIf="reservationTime.errors['timePast']">The selected time is in the past!</div>
+            <div class="error-message" *ngIf="reservationTime.errors['closed']">Business is closed on {{ weekday }}!</div>
+            <div class="error-message" *ngIf="reservationTime.errors['required']">Please enter a reservation time!</div>
+            <div class="error-message" *ngIf="reservationTime.errors['invalid']">This business is not open at this time!</div>
+            <div class="error-message" *ngIf="reservationTime.errors['timePast']">The selected time is in the past!</div>
           </div>
         </div>
 
@@ -148,4 +149,4 @@
 <li>else show a ticket for a certain time/day, could use the same database except only one item is stored</li>
 <br>
 <h1>Known Bugs:</h1>
-<li>No handling for when business is closed</li>
+<li>All good now</li>
