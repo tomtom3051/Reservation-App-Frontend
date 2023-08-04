@@ -201,3 +201,10 @@ button:hover {
   align-items: center;
   justify-content: center;
 }
+
+.temp-button {
+  border-radius: 5px;
+  margin-top: 20px;
+  background-color: purple;
+  border-color: purple;
+}

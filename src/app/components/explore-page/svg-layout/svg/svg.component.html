@@ -1,0 +1,30 @@
+<div>
+  <h2>{{ floorplan.name }}</h2>
+  <div class="svg-container">
+    <svg
+      [attr.height]="floorplan.height"
+      [attr.width]="floorplan.width"
+      #svgGrid
+      (pointerdown)="pointerDown($event)"
+      (pointermove)="pointerMove($event)"
+      (pointerup)="pointerUp($event)">
+
+      <g *ngFor="let reservable of reservables; let i = index">
+        <rect
+          class="draggable"
+          [attr.x]="reservable.x"
+          [attr.y]="reservable.y"
+          [attr.width]="reservable.width"
+          [attr.height]="reservable.height"
+          [attr.fill]="determineColor(reservable.status)"
+          [attr.index]="i"></rect>
+
+          <text
+            [attr.x]="reservable.x + (reservable.width/2) - 4"
+            [attr.y]="reservable.y + (reservable.height/2) + 4"
+            fill="white">{{ reservable.capacity }}</text>
+      </g>
+    </svg>
+  </div>
+</div>
+

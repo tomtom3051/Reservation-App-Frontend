@@ -1,44 +1,33 @@
-import { Component, ElementRef, ViewChild } from '@angular/core';
-import { test } from 'src/app/models/test.model';
+import { Component, ElementRef, Input, ViewChild } from '@angular/core';
+import { FloorplanModel } from 'src/app/models/floorplan.model';
+import { ReservableModel } from 'src/app/models/reservable.model';
 
 @Component({
-  selector: 'app-schedule',
-  templateUrl: './schedule.component.html',
-  styleUrls: ['./schedule.component.css']
+  selector: 'app-svg',
+  templateUrl: './svg.component.html',
+  styleUrls: ['./svg.component.css']
 })
-export class ScheduleComponent {
+export class SvgComponent {
   @ViewChild('svgGrid') svgGrid: ElementRef<SVGSVGElement>;
+  @Input() floorplan: FloorplanModel;
+
+  // public floorplan = new FloorplanModel(
+  //   1,
+  //   800,
+  //   800,
+  //   'Floorplan'
+  // );
+
+  public reservables: ReservableModel[] = [
+    new ReservableModel(10, 10, 50, 70, 5, 'free'),
+    new ReservableModel(110, 110, 100, 120, 3, 'booked'),
+    new ReservableModel(210, 210, 150, 170, 1, 'selected')
+  ];
+
+
 
   offsetX = 0;
   offsetY = 0;
-
-  public blocks: test[] = [
-    new test(
-      10,
-      10,
-      3,
-      false
-    ),
-    new test(
-      70,
-      10,
-      5,
-      false
-    ),
-    new test(
-      10,
-      70,
-      2,
-      true
-    ),
-    new test(
-      70,
-      70,
-      1,
-      true
-    )
-  ];
-
   selectedElement;
   selectedIndex: number;
 
@@ -47,7 +36,7 @@ export class ScheduleComponent {
   pointerDown(event) {
     if (event.target.classList.contains("draggable")) {
       this.selectedElement = event.target;
-      this.selectedIndex = event.target.getAttribute('data-index');
+      this.selectedIndex = event.target.getAttribute('index');
 
       let targetPositionX = this.selectedElement.getAttributeNS(null, 'x');
       let targetPositionY = this.selectedElement.getAttributeNS(null, 'y');
@@ -88,8 +77,9 @@ export class ScheduleComponent {
       this.selectedElement.setAttributeNS(null, 'x', mousePositionX);
       this.selectedElement.setAttributeNS(null, 'y', mousePositionY);
 
-      this.blocks[this.selectedIndex].x = mousePositionX;
-      this.blocks[this.selectedIndex].y = mousePositionY;
+      this.reservables[this.selectedIndex].x = mousePositionX;
+      this.reservables[this.selectedIndex].y = mousePositionY;
+      // console.log(this.reservables);
     }
     event.preventDefault();
   }
@@ -99,10 +89,16 @@ export class ScheduleComponent {
     this.selectedIndex = null;
   }
 
-  addBlock() {
-    let newBlock = new test(130, 10, 3, false);
-    this.blocks.push(newBlock);
-    console.log(this.blocks);
+  determineColor(status: string): string {
+    switch(status) {
+      case 'free':
+        return 'green';
+      case 'booked':
+        return 'red'
+      case 'selected':
+        return 'blue';
+      default:
+        return 'green';
+    }
   }
 }
-

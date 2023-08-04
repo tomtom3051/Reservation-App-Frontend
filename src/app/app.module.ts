@@ -35,6 +35,8 @@ import { NgbModule, NgbTimepickerModule } from '@ng-bootstrap/ng-bootstrap';
 import { AgmCoreModule } from '@agm/core';
 import { TimePickerComponent } from './components/auth/register-business/time-picker/time-picker.component';
 import { InfoFormComponent } from './components/auth/register-business/info-form/info-form.component';
+import { SvgLayoutComponent } from './components/explore-page/svg-layout/svg-layout.component';
+import { SvgComponent } from './components/explore-page/svg-layout/svg/svg.component';
 
 @NgModule({
   declarations: [
@@ -64,7 +66,9 @@ import { InfoFormComponent } from './components/auth/register-business/info-form
     RequestComponent,
     RegisterBusinessComponent,
     TimePickerComponent,
-    InfoFormComponent
+    InfoFormComponent,
+    SvgLayoutComponent,
+    SvgComponent
   ],
   imports: [
     BrowserModule,

@@ -16,6 +16,7 @@ import { FriendsComponent } from './components/profile-page/friends/friends.comp
 import { ScheduleComponent } from './components/profile-page/schedule/schedule.component';
 import { RegisterBusinessComponent } from './components/auth/register-business/register-business.component';
 import { InfoFormComponent } from './components/auth/register-business/info-form/info-form.component';
+import { SvgLayoutComponent } from './components/explore-page/svg-layout/svg-layout.component';
 
 const routes: Routes = [
   { path: '', component: AuthComponent },
@@ -23,6 +24,7 @@ const routes: Routes = [
   { path: 'signup', component: SignupComponent },
   { path: 'register-business', component: RegisterBusinessComponent },
   { path: 'business-info', component: InfoFormComponent },
+  { path: 'business-layout/:id', component: SvgLayoutComponent },
   { path: 'explore', component: ExplorePageComponent, canActivate: [AuthGuard] },
   { path: 'explore/:id', component: BusinessPageComponent, canActivate: [AuthGuard], children: [
     { path: '', redirectTo: 'info', pathMatch: 'full' },

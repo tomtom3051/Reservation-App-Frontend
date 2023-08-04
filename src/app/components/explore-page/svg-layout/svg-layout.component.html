@@ -1,0 +1,34 @@
+<h3>Design Your Business Layout:</h3>
+
+<div>
+  <form (submit)="onAddFloorplan(floorplanData)" #floorplanData="ngForm">
+    <div class="form-container">
+      <label for="label">Label Your Floorplan and Choose a Size</label>
+      <div class="svg-form">
+
+        <input
+          name="label"
+          ngModel
+          type="text"
+          placeholder="Floorplan"
+          required>
+
+        <select name="size" [(ngModel)]="selectedSize">
+          <option value="small">Small</option>
+          <option value="medium">Medium</option>
+          <option value="large">Large</option>
+        </select>
+      </div>
+
+      <button
+        [disabled]="floorplanData.invalid"
+        class="add-button"
+        type="submit">Add Floorplan</button>
+    </div>
+
+  </form>
+</div>
+
+<app-svg
+  *ngFor="let floorplan of floorplans"
+  [floorplan]="floorplan"></app-svg>

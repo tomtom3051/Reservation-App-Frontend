@@ -40,6 +40,12 @@ button:hover {
   transform: scale(1.05);
 }
 
+button:disabled {
+  background-color: #45a049;
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
 .error-message {
   color: red;
   margin-top: 5px;

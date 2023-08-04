@@ -13,10 +13,24 @@
 <br>
 
 <div class="svg-container">
-  <svg class="svg">
-    <g *ngFor="let block of blocks">
-      <rect [attr.x]="block.x" [attr.y]="block.y"  width="50" height="50" [attr.fill]="block.booked ? 'red' : 'black'"></rect>
-      <text [attr.x]="block.x + 20" [attr.y]="block.y + 25" fill="white">{{ block.capacity }}</text>
+  <svg class="svg"
+    #svgGrid
+    (pointerdown)="pointerDown($event)"
+    (pointermove)="pointerMove($event)"
+    (pointerup)="pointerUp($event)"
+    >
+
+    <g *ngFor="let block of blocks; let i = index">
+      <rect
+        class="draggable"
+        [attr.x]="block.x"
+        [attr.y]="block.y"
+        width="50"
+        height="50"
+        [attr.fill]="block.booked ? 'blue' : 'purple'"
+        [attr.data-index]="i"></rect>
+
+      <text [attr.x]="block.x + 20" [attr.y]="block.y + 28" fill="white">{{ block.capacity }}</text>
     </g>
 
   </svg>

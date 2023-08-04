@@ -1,5 +1,6 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
+import { Router } from '@angular/router';
 import { NgbTimeStruct } from '@ng-bootstrap/ng-bootstrap';
 import { Subscription } from 'rxjs';
 import { UserModel } from 'src/app/models/user.model';
@@ -48,7 +49,9 @@ export class BusinessReservationComponent implements OnInit, OnDestroy {
     private friendsService: FriendsService,
     private authService: AuthService,
     private businessHoursService: BusinessHoursService,
-    private businessService: BusinessService
+    private businessService: BusinessService,
+    //Bring in router for nav, might be removed later
+    private router: Router
   ) {}
 
   ngOnInit(): void {
@@ -181,6 +184,11 @@ export class BusinessReservationComponent implements OnInit, OnDestroy {
     if (index !== -1) {
       this.friendsAdded.splice(index, 1);
     }
+  }
+
+  //Temporary function brings you to page to change floorplan
+  tempEditFloorplan() {
+    this.router.navigate(['/business-layout', this.pageId]);
   }
 
   //On destroy unsubs everything that needs to be unsubbed.

@@ -1,0 +1,64 @@
+h3 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 20px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+
+.form-container {
+  padding: 10px;
+  border: 1px solid black;
+  border-radius: 20px;
+  background-color: #444;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.svg-form {
+  margin-top: 20px;
+}
+
+input {
+  border-radius: 10px;
+  margin-right: 40px;
+  height: 40px;
+  width: 20vw;
+  background-color: #333;
+  color: #fff;
+}
+
+select {
+  border-radius: 10px;
+  background-color: #333;
+  color: #fff;
+  height: 40px;
+  width: 20vw;
+}
+
+option {
+  border-radius: 10px;
+  background-color: #333;
+  color: #fff;
+}
+
+.add-button {
+  margin: 10px;
+  border-radius: 10px;
+  background-color: forestgreen;
+  border: 1px solid black;
+}
+
+button:disabled {
+  background-color: forestgreen;
+  opacity: 0.6;
+}
+
+button:hover {
+  transform: scale(1.05);
+}
+
