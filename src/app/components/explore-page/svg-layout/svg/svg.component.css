@@ -15,4 +15,89 @@ h2 {
   justify-content: center;
   align-content: center;
   margin: 20px;
+  text-decoration-line: underline;
+}
+
+.component-container {
+  border: 2px solid black;
+  border-radius: 10px;
+  margin: 20px;
+}
+
+.form-container {
+  padding: 10px;
+  border: 1px solid black;
+  border-radius: 20px;
+  background-color: #444;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  /* width: 30vw; */
+}
+
+input {
+  border-radius: 10px;
+  margin-right: 20px;
+  background-color: #333;
+  color: #fff;
+}
+
+select {
+  border-radius: 10px;
+  background-color: #333;
+  color: #fff;
+  /* height: 40px;
+  width: 20vw; */
+}
+
+option {
+  border-radius: 10px;
+  background-color: #333;
+  color: #fff;
+}
+
+
+.add-button {
+  margin: 10px;
+  border-radius: 10px;
+  background-color: forestgreen;
+  border: 1px solid black;
+}
+
+button:disabled {
+  background-color: forestgreen;
+  opacity: 0.6;
+}
+
+button:hover {
+  transform: scale(1.02);
+}
+
+.save-button {
+  width: 50%;
+  margin-top: 10px;
+  border-bottom-left-radius: 10px;
+  /* border-bottom-right-radius: 10px; */
+  background-color: green;
+  border: 1px solid black;
+}
+
+.delete-button {
+  width: 50%;
+  margin-top: 10px;
+  /* border-bottom-left-radius: 10px; */
+  border-bottom-right-radius: 10px;
+  background-color: red;
+  border: 1px solid black;
+}
+
+.add-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.label-text{
+  font-size: 12px;
 }

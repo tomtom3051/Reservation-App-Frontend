@@ -2,38 +2,3 @@
 <p>Run a query in the reservation database to retrieve information on all reservations made by this user in the next week</p>
 <p>Order the results by date of occurence and display all necessary info in a special component</p>
 <p>component can be clicked to expand, doing so can let you visit page of business where the res takes place or shows a qr code to verify you made the reservation if needed.</p>
-
-<br>
-<br>
-<br>
-
-<h3>SVG Reservable Practice:</h3>
-
-<br>
-<br>
-
-<div class="svg-container">
-  <svg class="svg"
-    #svgGrid
-    (pointerdown)="pointerDown($event)"
-    (pointermove)="pointerMove($event)"
-    (pointerup)="pointerUp($event)"
-    >
-
-    <g *ngFor="let block of blocks; let i = index">
-      <rect
-        class="draggable"
-        [attr.x]="block.x"
-        [attr.y]="block.y"
-        width="50"
-        height="50"
-        [attr.fill]="block.booked ? 'blue' : 'purple'"
-        [attr.data-index]="i"></rect>
-
-      <text [attr.x]="block.x + 20" [attr.y]="block.y + 28" fill="white">{{ block.capacity }}</text>
-    </g>
-
-  </svg>
-</div>
-
-<button (click)="addBlock()">Click</button>

@@ -1,4 +1,4 @@
-<div>
+<div class="component-container">
   <h2>{{ floorplan.name }}</h2>
   <div class="svg-container">
     <svg
@@ -16,15 +16,64 @@
           [attr.y]="reservable.y"
           [attr.width]="reservable.width"
           [attr.height]="reservable.height"
-          [attr.fill]="determineColor(reservable.status)"
+          [attr.fill]="reservable.id ? '#cccccc' : '#737373'"
           [attr.index]="i"></rect>
 
+          <text
+            [attr.x]="reservable.x"
+            [attr.y]="reservable.y + 12"
+            fill="black"
+            class="label-text">{{ reservable.label }}
+          </text>
           <text
             [attr.x]="reservable.x + (reservable.width/2) - 4"
             [attr.y]="reservable.y + (reservable.height/2) + 4"
             fill="white">{{ reservable.capacity }}</text>
       </g>
     </svg>
+  </div>
+
+  <div class="add-container">
+    <form (submit)="onAddReservable(reservableData)" #reservableData="ngForm">
+      <div class="form-container">
+        <label for="label">Choose Reservable Capacity and Size</label>
+        <div class="svg-form">
+
+          <input
+            name="capacity"
+            ngModel
+            type="number"
+            placeholder="1"
+            required
+            min="1">
+
+          <input
+            name="label"
+            ngModel
+            type="text"
+            placeholder="Label"
+            required
+            maxlength="10">
+
+          <select name="size" [(ngModel)]="selectedSize">
+            <option value="small">Small</option>
+            <option value="medium">Medium</option>
+            <option value="large">Large</option>
+          </select>
+        </div>
+
+        <button
+          [disabled]="reservableData.invalid"
+          class="add-button"
+          type="submit">Add Reservable</button>
+      </div>
+
+    </form>
+  </div>
+
+  <div class="button-container">
+    <button class="save-button" (click)="onSaveFloorplan()">{{ floorplan.id ? 'Update' : 'Save'}}</button>
+    <button class="delete-button" (click)="onDeleteFloorplan()">Delete</button>
   </div>
 </div>
 

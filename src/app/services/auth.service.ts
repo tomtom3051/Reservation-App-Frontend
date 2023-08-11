@@ -158,6 +158,11 @@ export class AuthService {
     localStorage.removeItem('userId');
   }
 
+
+  /**
+   * Retrieves auth data stored in local storage for authLogin
+   * @returns token and userId of previous session
+   */
   getAuthData() {
     const token = localStorage.getItem('token');
     const userIdString = localStorage.getItem('userId');
@@ -172,6 +177,7 @@ export class AuthService {
     };
   }
 
+  //Auto authenticates user if their old session data is still stored
   autoAuthUser() {
     const authInformation = this.getAuthData();
     if (!authInformation) {

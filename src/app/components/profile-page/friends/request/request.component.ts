@@ -25,6 +25,7 @@ export class RequestComponent {
   }
 
   declineRequest() {
-    console.log('decline!');
+    const pageId = this.userService.getPageUserId();
+    this.friendRequestService.deleteRequest(this.userRequest.id, pageId);
   }
 }
