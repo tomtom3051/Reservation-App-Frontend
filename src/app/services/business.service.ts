@@ -60,6 +60,7 @@ export class BusinessService {
       });
   }
 
+  //Get info about a specific business based on its id
   getBusiness(id: number) {
     this.currentId = id;
     return this.http.get<{
@@ -74,6 +75,7 @@ export class BusinessService {
     }>('http://localhost:3000/business/' + id);
   }
 
+  //Get a businesses lat and lng info based on its id
   getBusinessLocation(id: number) {
     return this.http.get<{
       latitude: string;
@@ -81,8 +83,85 @@ export class BusinessService {
     }>('http://localhost:3000/business/location/' + id);
   }
 
+  //Return the id of the page a user is currently on
   getCurrentPageId() {
     return this.currentId;
+  }
+
+  //Get a businesses description, lat and lng based on its id
+  getBusinessInfo(id: number) {
+    return this.http.get<{
+      description: string,
+      longitude: string,
+      latitude: string
+    }>("http://localhost:3000/business/info/" + id);
+  }
+
+  //Update only the description of a specific business
+  updateDescription(id: number, description: string) {
+    const updateData = {
+      "description": description
+    }
+    this.http.patch<{
+      message: String,
+      description: any
+    }>(
+      'http://localhost:3000/business/description/' + id,
+      updateData
+    ).subscribe({
+      next: data => {
+        console.log(data);
+      },
+      error: error => {
+        console.log("ERROR: " + error);
+      }
+    });
+  }
+
+  //Update only the location of a specific business
+  updateLocation(id: number, lat: number, lng: number) {
+    const updateData = {
+      "longitude": lng,
+      "latitude": lat
+    }
+    this.http.patch<{
+      message: String,
+      location: any
+    }>(
+      'http://localhost:3000/business/location/' + id,
+      updateData
+    ).subscribe({
+      next: data => {
+        console.log(data);
+      },
+      error: error => {
+        console.log("ERROR: " + error);
+      }
+    });
+  }
+
+  //Update the description and location of a business
+  updateDescriptionAndLocation(id: number, description: string, lat: number, lng: number) {
+    const updateData = {
+      "description": description,
+      "longitude": lng,
+      "latitude": lat
+    }
+
+    this.http.patch<{
+      message: String,
+      info: any
+    }>(
+      'http://localhost:3000/business/locdesc/' + id,
+      updateData
+    ).subscribe({
+      next: data => {
+        console.log(data);
+      },
+      error: error => {
+        console.log("ERROR: " + error);
+      }
+    });
   }
 
   //old code in case I want to look at it.

@@ -23,7 +23,7 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'signup', component: SignupComponent },
   { path: 'register-business', component: RegisterBusinessComponent },
-  { path: 'business-info', component: InfoFormComponent },
+  { path: 'business-info/:id', component: InfoFormComponent },
   { path: 'business-layout/:id', component: SvgLayoutComponent },
   { path: 'explore', component: ExplorePageComponent, canActivate: [AuthGuard] },
   { path: 'explore/:id', component: BusinessPageComponent, canActivate: [AuthGuard], children: [

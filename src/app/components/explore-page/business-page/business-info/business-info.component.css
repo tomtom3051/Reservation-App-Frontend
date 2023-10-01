@@ -33,3 +33,10 @@ th {
 agm-map {
   height: 400px;
 }
+
+.temp-button {
+  border-radius: 5px;
+  margin-top: 20px;
+  background-color: rgb(144, 10, 10);
+  border-color: rgb(144, 10, 10);
+}

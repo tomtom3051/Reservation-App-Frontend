@@ -6,7 +6,7 @@
       <label for="description">Business Description</label>
       <input
         name="description"
-        ngModel
+        [(ngModel)]="description"
         type="text"
         placeholder="Description"
         #descriptionInput="ngModel">
@@ -18,7 +18,6 @@
        *ngFor="let day of days"
        [day]="day"></app-time-picker>
     </div>
-
 
 
     <div *ngIf="lat && lng">

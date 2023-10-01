@@ -7,38 +7,43 @@
     </tr>
     <tr>
       <td>Monday</td>
-      <td *ngIf="monday">{{ monday.opening_time }} - {{ monday.closing_time }}</td>
-      <td *ngIf="!monday">Closed</td>
+      <td>{{ getTime('Monday') }}</td>
     </tr>
     <tr>
       <td>Tuesday</td>
-      <td *ngIf="tuesday">{{ tuesday.opening_time }} - {{ tuesday.closing_time }}</td>
-      <td *ngIf="!tuesday">Closed</td>
+      <td>{{ getTime('Tuesday') }}</td>
+      <!-- <td *ngIf="tuesday">{{ tuesday.opening_time }} - {{ tuesday.closing_time }}</td>
+      <td *ngIf="!tuesday">Closed</td> -->
     </tr>
     <tr>
       <td>Wednesday</td>
-      <td *ngIf="wednesday">{{ wednesday.opening_time }} - {{ wednesday.closing_time }}</td>
-      <td *ngIf="!wednesday">Closed</td>
+      <td>{{ getTime('Wednesday') }}</td>
+      <!-- <td *ngIf="wednesday">{{ wednesday.opening_time }} - {{ wednesday.closing_time }}</td>
+      <td *ngIf="!wednesday">Closed</td> -->
     </tr>
     <tr>
       <td>Thursday</td>
-      <td *ngIf="thursday">{{ thursday.opening_time }} - {{ thursday.closing_time }}</td>
-      <td *ngIf="!thursday">Closed</td>
+      <td>{{ getTime('Thursday') }}</td>
+      <!-- <td *ngIf="thursday">{{ thursday.opening_time }} - {{ thursday.closing_time }}</td>
+      <td *ngIf="!thursday">Closed</td> -->
     </tr>
     <tr>
       <td>Friday</td>
-      <td *ngIf="friday">{{ friday.opening_time }} - {{ friday.closing_time }}</td>
-      <td *ngIf="!friday">Closed</td>
+      <td>{{ getTime('Friday') }}</td>
+      <!-- <td *ngIf="friday">{{ friday.opening_time }} - {{ friday.closing_time }}</td>
+      <td *ngIf="!friday">Closed</td> -->
     </tr>
     <tr>
       <td>Saturday</td>
-      <td *ngIf="saturday">{{ saturday.opening_time }} - {{ saturday.closing_time }}</td>
-      <td *ngIf="!saturday">Closed</td>
+      <td>{{ getTime('Saturday') }}</td>
+      <!-- <td *ngIf="saturday">{{ saturday.opening_time }} - {{ saturday.closing_time }}</td>
+      <td *ngIf="!saturday">Closed</td> -->
     </tr>
     <tr>
       <td>Sunday</td>
-      <td *ngIf="sunday">{{ sunday.opening_time }} - {{ sunday.closing_time }}</td>
-      <td *ngIf="!sunday">Closed</td>
+      <td>{{ getTime('Sunday') }}</td>
+      <!-- <td *ngIf="sunday">{{ sunday.opening_time }} - {{ sunday.closing_time }}</td>
+      <td *ngIf="!sunday">Closed</td> -->
     </tr>
   </table>
 </div>
@@ -54,5 +59,8 @@
     </agm-map>
   </div>
 </div>
+
+
+<button class="temp-button" (click)="tempEditInfo()">Edit Info</button>
 
 

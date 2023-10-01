@@ -12,9 +12,24 @@ export class ExplorePageComponent implements OnInit, OnDestroy {
   businesses: BusinessModel[] = [];
   private businessSub: Subscription;
 
+  lat: number;
+  lng: number;
+
   constructor(private businessService: BusinessService) {}
 
   ngOnInit(): void {
+    //Check if location info is allowed
+    if (!navigator.geolocation) {
+      // console.log('Location not supported!')
+    }
+    navigator.geolocation.getCurrentPosition((position) => {
+      this.lat = position.coords.latitude;
+      this.lng = position.coords.longitude;
+      // console.log(
+      //   `lat: ${position.coords.latitude}, lon: ${position.coords.longitude}`
+      // );
+    });
+
     this.businessService.getBusinesses();
     this.businessSub = this.businessService.getBusinessUpdateListener()
       .subscribe((businessData: { businesses: BusinessModel[] }) => {
