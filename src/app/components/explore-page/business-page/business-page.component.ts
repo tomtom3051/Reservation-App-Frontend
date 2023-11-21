@@ -13,6 +13,7 @@ export class BusinessPageComponent implements OnInit {
   id: number;
   business: BusinessModel;
   isFavorite: boolean;
+  isLoading: boolean = false;
 
   constructor(
     private businessService: BusinessService,
@@ -21,6 +22,7 @@ export class BusinessPageComponent implements OnInit {
     private favoritesService: FavoritesService) {}
 
   ngOnInit(): void {
+    this.isLoading = true;
     this.route.params.subscribe(
       (params: Params) => {
         this.id = +params['id'];
@@ -38,6 +40,7 @@ export class BusinessPageComponent implements OnInit {
             longitude: businessData.longitude,
             latitude: businessData.latitude
           }
+          this.isLoading = false;
         });
       }
     );

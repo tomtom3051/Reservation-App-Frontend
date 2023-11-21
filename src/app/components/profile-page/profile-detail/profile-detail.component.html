@@ -1,4 +1,4 @@
-<div style="display: flex; align-items: center; justify-content: center;">
+<div *ngIf="!isLoading" style="display: flex; align-items: center; justify-content: center;">
   <div class="social-profile">
       <img src="{{ user.profileImgPath }}"  alt="Profile Picture">
       <h2>{{ user.name }}</h2>

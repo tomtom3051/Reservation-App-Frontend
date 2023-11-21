@@ -12,8 +12,11 @@ export class ExplorePageComponent implements OnInit, OnDestroy {
   businesses: BusinessModel[] = [];
   private businessSub: Subscription;
 
+  //Stores the location of the user
   lat: number;
   lng: number;
+  //Stores the radius of distance from users businesses have to be
+  rad: number = 100;
 
   constructor(private businessService: BusinessService) {}
 
@@ -21,21 +24,25 @@ export class ExplorePageComponent implements OnInit, OnDestroy {
     //Check if location info is allowed
     if (!navigator.geolocation) {
       // console.log('Location not supported!')
-    }
-    navigator.geolocation.getCurrentPosition((position) => {
-      this.lat = position.coords.latitude;
-      this.lng = position.coords.longitude;
-      // console.log(
-      //   `lat: ${position.coords.latitude}, lon: ${position.coords.longitude}`
-      // );
-    });
-
-    this.businessService.getBusinesses();
-    this.businessSub = this.businessService.getBusinessUpdateListener()
-      .subscribe((businessData: { businesses: BusinessModel[] }) => {
-        this.businesses = businessData.businesses;
-        // console.log(this.businesses);
+    } else{
+      navigator.geolocation.getCurrentPosition((position) => {
+        this.lat = position.coords.latitude;
+        this.lng = position.coords.longitude;
+        // console.log(
+        //   `lat: ${position.coords.latitude}, lon: ${position.coords.longitude}`
+        // );
+        this.businessService.getBusinessesByLocation(this.lat, this.lng, this.rad);
+        this.businessSub = this.businessService.getBusinessUpdateListener()
+          .subscribe((businessData: { businesses: BusinessModel[] }) => {
+            this.businesses = businessData.businesses;
+            // console.log(this.businesses);
+          });
       });
+
+    }
+
+
+
   }
 
   ngOnDestroy(): void {

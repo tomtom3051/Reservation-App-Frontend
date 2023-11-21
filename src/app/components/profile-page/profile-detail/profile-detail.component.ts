@@ -16,6 +16,7 @@ export class ProfileDetailComponent implements OnInit {
     private authService: AuthService
   ) {}
 
+  public isLoading: boolean = false;
   public userId: number;
   user: UserModel;
 
@@ -23,6 +24,7 @@ export class ProfileDetailComponent implements OnInit {
   isFriend = false;
 
   ngOnInit(): void {
+    this.isLoading = true;
     this.route.params.subscribe(
       (params: Params) => {
         this.userId = +params['id'];
@@ -41,6 +43,7 @@ export class ProfileDetailComponent implements OnInit {
             profileImgPath: userData.profileImgPath,
             description: userData.description,
           };
+          this.isLoading = false;
         });
       }
     );

@@ -133,7 +133,7 @@ export class ReservableService {
       reservableData
     ).subscribe({
       next: data => {
-        console.log(data);
+        // console.log(data);
       },
       error: error => {
         console.log("ERROR: " + error);

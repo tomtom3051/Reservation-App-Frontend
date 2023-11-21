@@ -37,6 +37,7 @@ import { TimePickerComponent } from './components/auth/register-business/time-pi
 import { InfoFormComponent } from './components/auth/register-business/info-form/info-form.component';
 import { SvgLayoutComponent } from './components/explore-page/svg-layout/svg-layout.component';
 import { SvgComponent } from './components/explore-page/svg-layout/svg/svg.component';
+import { TestComponent } from './components/test/test.component';
 
 @NgModule({
   declarations: [
@@ -68,7 +69,8 @@ import { SvgComponent } from './components/explore-page/svg-layout/svg/svg.compo
     TimePickerComponent,
     InfoFormComponent,
     SvgLayoutComponent,
-    SvgComponent
+    SvgComponent,
+    TestComponent
   ],
   imports: [
     BrowserModule,

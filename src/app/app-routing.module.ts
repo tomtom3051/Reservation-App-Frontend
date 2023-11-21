@@ -17,6 +17,7 @@ import { ScheduleComponent } from './components/profile-page/schedule/schedule.c
 import { RegisterBusinessComponent } from './components/auth/register-business/register-business.component';
 import { InfoFormComponent } from './components/auth/register-business/info-form/info-form.component';
 import { SvgLayoutComponent } from './components/explore-page/svg-layout/svg-layout.component';
+import { TestComponent } from './components/test/test.component';
 
 const routes: Routes = [
   { path: '', component: AuthComponent },
@@ -31,14 +32,15 @@ const routes: Routes = [
     { path: 'info', component: BusinessInfoComponent },
     { path: 'menu', component: BusinessMenuPageComponent },
     { path: 'reservation', component: BusinessReservationComponent },
-    { path: 'images', component: BusinessImagesComponent}
+    // { path: 'images', component: BusinessImagesComponent}
   ] },
   { path: 'profile/:id', component: ProfilePageComponent, canActivate: [AuthGuard], children: [
     { path: '', redirectTo: 'favorites', pathMatch: 'full' },
     { path: 'favorites', component: FavoritesComponent },
     { path: 'friends', component: FriendsComponent },
     { path: 'schedule', component: ScheduleComponent }
-  ] }
+  ] },
+  { path: 'test', component: TestComponent }
 ];
 
 @NgModule({

@@ -1,0 +1,30 @@
+<h2>Image Upload Testing</h2>
+
+<div class="container">
+  <form [formGroup]="form" (submit)="onSaveImg()">
+
+    <div>
+      <button
+        type="button"
+        (click)="filePicker.click()">Pick Image</button>
+      <input
+        type="file"
+        #filePicker
+        (change)="onImagePicked($event)">
+    </div>
+
+    <div class="image-preview" *ngIf="imagePreview !== '' && imagePreview && form.get('image').valid">
+      <img [src]="imagePreview" [alt]="imagePreview">
+    </div>
+
+    <button type="submit">Save!</button>
+  </form>
+</div>
+
+<br>
+<hr>
+<br>
+<h2>Test Show Img Received from Backend</h2>
+<br>
+<img src="http://localhost:3000/pictures/default2.jpg" alt="http://localhost:3000/pictures/default2.jpg">
+

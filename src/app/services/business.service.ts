@@ -29,11 +29,12 @@ export class BusinessService {
     return this.businessesUpdated.asObservable();
   }
 
-  //Http request gets business from business database connected to the backend
-  //TODO: remove password from info being sent.
-  getBusinesses() {
+
+  getBusinessesByLocation(lat: number, lng: number, rad: number) {
+    const queryString = lat + "/" + lng + "/" + rad;
+    // console.log(queryString);
     this.http
-      .get<{ businesses: any }>('http://localhost:3000/business')
+      .get<{ businesses: any }>('http://localhost:3000/business/find/' + queryString)
       .pipe(
         map((businessData) => {
           return {
@@ -52,13 +53,44 @@ export class BusinessService {
           };
         })
       )
-      .subscribe((transformedBusinessData) => {
-        this.businesses = transformedBusinessData.businesses;
+      .subscribe((transBusinessData) => {
+        this.businesses = transBusinessData.businesses;
         this.businessesUpdated.next({
           businesses: [...this.businesses]
         });
       });
   }
+
+  //Http request gets business from business database connected to the backend
+  //TODO: remove password from info being sent.
+  // getBusinesses() {
+  //   this.http
+  //     .get<{ businesses: any }>('http://localhost:3000/business')
+  //     .pipe(
+  //       map((businessData) => {
+  //         return {
+  //           businesses: businessData.businesses.map((business) => {
+  //             return {
+  //               id: business.id,
+  //               name: business.name,
+  //               email: business.email,
+  //               password: business.password,
+  //               profileImgPath: business.profileImgPath,
+  //               description: business.description,
+  //               longitude: business.longitude,
+  //               latitude: business.latitude
+  //             };
+  //           })
+  //         };
+  //       })
+  //     )
+  //     .subscribe((transformedBusinessData) => {
+  //       this.businesses = transformedBusinessData.businesses;
+  //       this.businessesUpdated.next({
+  //         businesses: [...this.businesses]
+  //       });
+  //     });
+  // }
 
   //Get info about a specific business based on its id
   getBusiness(id: number) {
@@ -110,7 +142,7 @@ export class BusinessService {
       updateData
     ).subscribe({
       next: data => {
-        console.log(data);
+        // console.log(data);
       },
       error: error => {
         console.log("ERROR: " + error);

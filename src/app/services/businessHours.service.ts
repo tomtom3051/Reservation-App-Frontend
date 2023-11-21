@@ -180,6 +180,8 @@ export class BusinessHoursService {
       "closing_time": closing_time
     }
 
+    // console.log(hoursData);
+
     this.http.post<{
       message: string,
       result: any
@@ -213,7 +215,7 @@ export class BusinessHoursService {
       hoursData
     ).subscribe({
       next: data => {
-        console.log(data);
+        // console.log(data);
       },
       error: error => {
         console.log("ERROR: " + error);

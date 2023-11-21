@@ -5,6 +5,9 @@
       <li *ngIf="loggedIn" class="navbar-item"><a routerLinkActive="active" routerLink="/explore">Explore</a></li>
       <li *ngIf="loggedIn" class="navbar-item"><a routerLinkActive="active" [routerLink]="['/profile/', userId]">My profile</a></li>
       <li *ngIf="!loggedIn" class="navbar-item"><a routerLinkActive="active" routerLink="/">Login/Signup</a></li>
+
+      <li class="navbar-item"><a routerLinkActive="active" routerLink="/test">Test</a></li>
+
       <li *ngIf="loggedIn"><button (click)="logout()" class="logButton">Logout</button></li>
     </ul>
   </div>

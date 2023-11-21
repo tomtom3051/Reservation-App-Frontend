@@ -1,7 +1,7 @@
 <div class="nav-bar">
   <button (click)="goBack()">Back</button>
 </div>
-<div class="business-detail">
+<div *ngIf="!isLoading" class="business-detail">
   <div class="business-image">
     <img [src]="business.profileImgPath" alt="business image">
   </div>
