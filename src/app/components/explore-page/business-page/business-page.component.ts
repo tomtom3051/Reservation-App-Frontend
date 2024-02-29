@@ -34,11 +34,8 @@ export class BusinessPageComponent implements OnInit {
             id: businessData.id,
             name: businessData.name,
             email: businessData.email,
-            password: businessData.password,
             profileImgPath: businessData.profileImgPath,
-            description: businessData.description,
-            longitude: businessData.longitude,
-            latitude: businessData.latitude
+            description: businessData.description
           }
           this.isLoading = false;
         });

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Params } from '@angular/router';
+import { ActivatedRoute, Params, Router } from '@angular/router';
 import { UserModel } from 'src/app/models/user.model';
 import { AuthService } from 'src/app/services/auth.service';
 import { UserService } from 'src/app/services/user.service';
@@ -13,7 +13,8 @@ export class ProfileDetailComponent implements OnInit {
   constructor(
     private userService: UserService,
     private route: ActivatedRoute,
-    private authService: AuthService
+    private authService: AuthService,
+    private router: Router
   ) {}
 
   public isLoading: boolean = false;
@@ -49,7 +50,19 @@ export class ProfileDetailComponent implements OnInit {
     );
   }
 
+
   changeFriend() {
     this.isFriend = !this.isFriend;
+  }
+
+  //This function allows the user to change information on their profile, this includes
+  //profile picture, description and password
+  //This does NOT include
+  //id, user name and email as these are used as primary keys throughout the app
+  editProfile() {
+    if (this.myProfile) {
+      this.router.navigate(['/edit-profile', this.userId]);
+    }
+
   }
 }

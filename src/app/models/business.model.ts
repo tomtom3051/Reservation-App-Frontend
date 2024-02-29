@@ -10,10 +10,7 @@ export class BusinessModel {
     public id: number,
     public name: string,
     public email: string,
-    public password: string,
     public profileImgPath: string,
-    public description: string,
-    public longitude: any,
-    public latitude: any
+    public description: string
   ) {}
 }

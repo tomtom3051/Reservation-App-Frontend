@@ -191,6 +191,12 @@ export class BusinessReservationComponent implements OnInit, OnDestroy {
     this.router.navigate(['/business-layout', this.pageId]);
   }
 
+  makeReservation() {
+    console.log(this.friendsAdded);
+    console.log(this.weekday);
+    console.log(this.reservationTime.value);
+  }
+
   //On destroy unsubs everything that needs to be unsubbed.
   ngOnDestroy(): void {
     this.friendsSub.unsubscribe();

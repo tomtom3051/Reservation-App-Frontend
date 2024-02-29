@@ -31,9 +31,10 @@
     <div class="friends-container">
       <h2 (click)="toggleAddFriends()">Add Friends</h2>
       <ng-container *ngIf="showAddFriends">
-        <p>Add friends works!</p>
+        <div>
+          <app-add-friends></app-add-friends>
+        </div>
       </ng-container>
     </div>
   </div>
 </div>
-

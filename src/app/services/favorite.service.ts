@@ -40,10 +40,8 @@ export class FavoritesService {
                   id: favorite.id,
                   name: favorite.name,
                   email: favorite.email,
-                  password: favorite.password,
                   profileImgPath: favorite.profileImgPath,
                   description: favorite.description,
-                  location: favorite.location
                 };
               })
             };

@@ -8,6 +8,7 @@
   border: 1px solid #444;
   border-radius: 10px;
   padding: 20px;
+  position: relative;
 }
 
 .social-profile img {
@@ -29,4 +30,18 @@
 
 .add-friend-button:hover {
   background-color: #45a049;
+}
+
+.edit-button {
+  border-radius: 5px;
+  border: none;
+  color: #fff;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background-color: #f21818;
+}
+
+.edit-button:hover {
+  transform: scale(1.05);
 }

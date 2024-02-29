@@ -222,6 +222,7 @@ export class InfoFormComponent implements OnInit, OnDestroy {
       this.businessService.updateLocation(this.pageId, this.lat, this.lng);
     }
 
+    //For each individual day update the given values
     for (let day of this.days) {
       //Handle patch/post/delete requests for business hours
       this.updateAddDeleteBusinessHours(day);

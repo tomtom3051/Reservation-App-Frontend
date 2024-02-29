@@ -1,4 +1,4 @@
-<h2>Image Upload Testing</h2>
+<!-- <h2>Image Upload Testing</h2>
 
 <div class="container">
   <form [formGroup]="form" (submit)="onSaveImg()">
@@ -19,12 +19,57 @@
 
     <button type="submit">Save!</button>
   </form>
+</div> -->
+
+
+<h2>Test initial reservation SVGs:</h2>
+<br>
+<br>
+<br>
+
+
+
+<div class="svg-container">
+  <svg
+    width="1000"
+    height="1000"
+    (pointerdown)="pointerDown($event)">
+    <g *ngFor="let reservable of reservables; let i = index">
+      <rect
+        class="draggable"
+        [attr.x]="reservable.x"
+        [attr.y]="reservable.y"
+        [attr.width]="reservable.width"
+        [attr.height]="reservable.height"
+        [attr.fill]="getColor(reservable.id)"
+        [attr.index]="reservable.id"
+        ></rect>
+
+        <text
+          [attr.x]="reservable.x"
+          [attr.y]="reservable.y + 12"
+          fill="black"
+          class="label-text">{{ reservable.label }}
+        </text>
+        <text
+          [attr.x]="reservable.x + (reservable.width/2) - 4"
+          [attr.y]="reservable.y + (reservable.height/2) + 4"
+          fill="white">{{ reservable.capacity }}</text>
+    </g>
+  </svg>
 </div>
 
-<br>
-<hr>
-<br>
-<h2>Test Show Img Received from Backend</h2>
-<br>
-<img src="http://localhost:3000/pictures/default2.jpg" alt="http://localhost:3000/pictures/default2.jpg">
+<button (click)="checkResults()">Test</button>
 
+
+
+<br>
+<br>
+<br>
+<h2>Possible app names</h2>
+<ul>
+  <li>SijberSpace</li>
+  <li>CityScout</li>
+  <li>DigiMap</li>
+  <li>CityScout</li>
+</ul>

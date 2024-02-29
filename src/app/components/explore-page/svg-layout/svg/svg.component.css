@@ -101,3 +101,7 @@ button:hover {
 .label-text{
   font-size: 12px;
 }
+
+.delete-X {
+  cursor: pointer;
+}

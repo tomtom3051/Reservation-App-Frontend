@@ -25,11 +25,13 @@ export class RegisterBusinessComponent implements OnInit, OnDestroy {
     );
   }
 
+  //Executes when register button is pressed
   onRegister(form: NgForm) {
+    //registration fails if form is invalid
     if (form.invalid) {
       return;
     }
-
+    
     this.isLoading = true;
     this.authService.registerBusiness(form.value.name, form.value.email, form.value.password);
   }

@@ -126,7 +126,7 @@ export class ReservableService {
       "label": label
     };
     this.http.patch<{
-      message: String,
+      message: string,
       reservable: any
     }>(
       'http://localhost:3000/reservable/update/' + id,
@@ -138,6 +138,29 @@ export class ReservableService {
       error: error => {
         console.log("ERROR: " + error);
       }
+    });
+  }
+
+
+  //Function deletes a reservable saved on the backend
+  deleteReservable(id: number) {
+    this.http.delete(
+      'http://localhost:3000/reservable/delete/' + id
+    ).subscribe({
+      next: data => {
+        this.deleteFromArray(id);
+      },
+      error: error => {
+        console.log('ERROR: ' + error);
+      }
+    });
+  }
+
+  //Remove reservable from service array
+  deleteFromArray(id: number) {
+    this.reservables = this.reservables.filter((reservable) => reservable.id !== id);
+    this.reservablesUpdated.next({
+      reservables: [...this.reservables]
     });
   }
 

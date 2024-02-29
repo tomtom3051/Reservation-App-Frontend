@@ -38,6 +38,8 @@ import { InfoFormComponent } from './components/auth/register-business/info-form
 import { SvgLayoutComponent } from './components/explore-page/svg-layout/svg-layout.component';
 import { SvgComponent } from './components/explore-page/svg-layout/svg/svg.component';
 import { TestComponent } from './components/test/test.component';
+import { EditProfileComponent } from './components/auth/edit-profile/edit-profile.component';
+import { AddFriendsComponent } from './components/profile-page/friends/add-friends/add-friends.component';
 
 @NgModule({
   declarations: [
@@ -70,7 +72,9 @@ import { TestComponent } from './components/test/test.component';
     InfoFormComponent,
     SvgLayoutComponent,
     SvgComponent,
-    TestComponent
+    TestComponent,
+    EditProfileComponent,
+    AddFriendsComponent
   ],
   imports: [
     BrowserModule,

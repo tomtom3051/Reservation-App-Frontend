@@ -43,11 +43,8 @@ export class BusinessService {
                 id: business.id,
                 name: business.name,
                 email: business.email,
-                password: business.password,
                 profileImgPath: business.profileImgPath,
-                description: business.description,
-                longitude: business.longitude,
-                latitude: business.latitude
+                description: business.description
               };
             })
           };
@@ -74,11 +71,8 @@ export class BusinessService {
   //               id: business.id,
   //               name: business.name,
   //               email: business.email,
-  //               password: business.password,
   //               profileImgPath: business.profileImgPath,
-  //               description: business.description,
-  //               longitude: business.longitude,
-  //               latitude: business.latitude
+  //               description: business.description
   //             };
   //           })
   //         };
@@ -99,11 +93,8 @@ export class BusinessService {
       id: number;
       name: string;
       email: string;
-      password: string;
       profileImgPath: string;
       description: string;
-      longitude: any;
-      latitude: any;
     }>('http://localhost:3000/business/' + id);
   }
 

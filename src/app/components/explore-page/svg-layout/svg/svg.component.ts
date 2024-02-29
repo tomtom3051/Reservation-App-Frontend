@@ -304,6 +304,21 @@ export class SvgComponent implements OnInit, OnDestroy {
     this.reservables[index].id = id;
   }
 
+  //Deletes a reservable from the floorplan
+  deleteReservable(id: number | null, label: string) {
+    if (id == null) {
+      this.removeByLabel(label);
+    } else {
+      this.reservableService.deleteReservable(id);
+      this.removeByLabel(label);
+    }
+  }
+
+  //Delete a reservable not saved to the backend from reservables array by its label
+  removeByLabel(label: string) {
+    this.reservables = this.reservables.filter((reservable) => reservable.label !== label);
+  }
+
   //On destroy unsub to all Subscription objects
   ngOnDestroy(): void {
     this.reservableSub.unsubscribe();

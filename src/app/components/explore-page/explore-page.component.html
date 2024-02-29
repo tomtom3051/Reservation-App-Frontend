@@ -7,11 +7,13 @@
 <hr>
 
 <div class="row">
-  <div class="col-xs-12">
+  <div *ngIf="lat && lng" class="col-xs-12">
       <app-business
       *ngFor="let businessEl of businesses"
       [business]="businessEl"
       ></app-business>
   </div>
 </div>
-<hr>
+
+<h2 *ngIf="!lat && !lng">Please allow location services</h2>
+

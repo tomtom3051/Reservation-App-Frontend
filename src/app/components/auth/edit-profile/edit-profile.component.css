@@ -1,0 +1,95 @@
+input[type="file"] {
+  visibility: hidden;
+}
+
+/* .image-preview {
+  height: 5rem;
+  margin: 1rem 0;
+}
+
+.image-preview img {
+  height: 100%;
+} */
+
+
+/* General container and form styling */
+.container {
+  max-width: 600px; /* Limiting the width for a more focused layout */
+  margin: auto; /* Centering the container */
+  padding: 2rem; /* Adding some padding for spacing */
+  background: #3e3e3e; /* Light background for the form area */
+  border-radius: 8px; /* Rounded corners for modern look */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Soft shadow for depth */
+}
+
+h3 {
+  color: #fff; /* Dark color for contrast */
+  margin-bottom: 1.5rem; /* Spacing below the header */
+}
+
+/* Styling for input fields and enhancing visibility for file input */
+input[type="text"], input[type="file"] + button {
+  width: 100%; /* Full width inputs */
+  padding: 0.75rem; /* Padding for input fields */
+  border: 1px solid #ccc; /* Subtle border */
+  border-radius: 4px; /* Rounded corners for inputs */
+  margin-top: 0.5rem; /* Margin top for spacing */
+  box-sizing: border-box; /* Ensures padding doesn't affect overall width */
+}
+
+input[type="file"] + button {
+  background-color: #007bff; /* Bootstrap primary color for the button */
+  color: white; /* White text for the button */
+  text-align: center; /* Center text inside the button */
+  cursor: pointer; /* Cursor change to indicate clickable */
+  border: none; /* Remove border for the button */
+  transition: background-color 0.3s ease; /* Transition for a smooth color change */
+}
+
+input[type="file"] + button:hover {
+  background-color: #0056b3; /* Darker shade on hover for interaction feedback */
+}
+
+/* Image preview enhancements */
+.image-preview {
+  height: auto; /* Auto height based on image */
+  margin: 1rem 0; /* Margin for spacing */
+  border: 1px solid #ddd; /* Subtle border around the image preview */
+  border-radius: 4px; /* Rounded corners for the preview */
+  overflow: hidden; /* Ensures the image does not overflow the container */
+}
+
+.image-preview img {
+  width: 100%; /* Ensure the image covers the full container width */
+  height: auto; /* Auto height to maintain aspect ratio */
+  display: block; /* Removes any default margin/padding */
+}
+
+/* Button styling */
+button {
+  background-color: #28a745; /* Green background for primary action */
+  color: white; /* White text for contrast */
+  padding: 0.75rem 1.5rem; /* Padding for larger clickable area */
+  border: none; /* Remove default border */
+  border-radius: 4px; /* Rounded corners for the button */
+  cursor: pointer; /* Indicates clickable */
+  margin-top: 1rem; /* Space above the button */
+  transition: background-color 0.3s ease; /* Smooth background color transition */
+}
+
+button:hover {
+  background-color: #218838; /* Slightly darker on hover for feedback */
+}
+
+button:disabled {
+  background-color: #218838;
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+.title-text {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}

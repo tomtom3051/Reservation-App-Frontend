@@ -77,6 +77,10 @@ a:hover {
   cursor: pointer;
 }
 
+.logButton:hover {
+  transform: scale(1.05);
+}
+
 @media (max-width: 768px) {
   .navbar-menu {
     justify-content: flex-end;

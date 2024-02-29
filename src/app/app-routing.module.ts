@@ -18,12 +18,14 @@ import { RegisterBusinessComponent } from './components/auth/register-business/r
 import { InfoFormComponent } from './components/auth/register-business/info-form/info-form.component';
 import { SvgLayoutComponent } from './components/explore-page/svg-layout/svg-layout.component';
 import { TestComponent } from './components/test/test.component';
+import { EditProfileComponent } from './components/auth/edit-profile/edit-profile.component';
 
 const routes: Routes = [
   { path: '', component: AuthComponent },
   { path: 'login', component: LoginComponent },
   { path: 'signup', component: SignupComponent },
   { path: 'register-business', component: RegisterBusinessComponent },
+  { path: 'edit-profile/:id', component: EditProfileComponent },
   { path: 'business-info/:id', component: InfoFormComponent },
   { path: 'business-layout/:id', component: SvgLayoutComponent },
   { path: 'explore', component: ExplorePageComponent, canActivate: [AuthGuard] },

@@ -1,0 +1,25 @@
+<div class="container">
+  <input
+    [(ngModel)]="username"
+    (ngModelChange)="onInputUpdated()"
+    class="search-friends"
+    type="text">
+  <div *ngIf="users.length > 0" class="dropdown-container">
+    <div *ngFor="let user of users">
+      <div class="user-container" [routerLink]="['/profile', user.id]">
+        <div class="profile-picture">
+          <img
+            src="{{ user.profileImgPath }}"
+            class="user-image">
+        </div>
+        <div class="user-details">
+          <h3>{{ user.name }}</h3>
+        </div>
+
+        <div class="friendButton">
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

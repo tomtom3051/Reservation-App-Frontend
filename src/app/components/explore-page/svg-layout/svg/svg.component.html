@@ -29,6 +29,13 @@
             [attr.x]="reservable.x + (reservable.width/2) - 4"
             [attr.y]="reservable.y + (reservable.height/2) + 4"
             fill="white">{{ reservable.capacity }}</text>
+
+          <text
+            class="delete-X"
+            [attr.x]="reservable.x + reservable.width - 10"
+            [attr.y]="reservable.y + 12"
+            fill="red"
+            (click)="deleteReservable(reservable.id, reservable.label)">X</text>
       </g>
     </svg>
   </div>
