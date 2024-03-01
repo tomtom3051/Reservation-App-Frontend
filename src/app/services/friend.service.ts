@@ -73,7 +73,22 @@ export class FriendsService {
       });
   }
 
-  removeFriend() {}
+  //Remove friendship relation between 2 users
+  removeFriend(id1: number, id2: number) {
+    const queryParams = id1 + "/" + id2;
 
-  checkIfFriend() {}
+    return this.http.delete<{
+      message: string
+    }>("http://localhost:3000/friend/" + queryParams);
+  }
+
+  //Check the friendship status between 2 users
+  checkIfFriend(userId: number, pageId: number) {
+    const queryParams =  userId + "/" + pageId
+    return this.http.get<{
+      status: string
+    }>(
+      "http://localhost:3000/friend/friendStatus/" + queryParams
+    );
+  }
 }

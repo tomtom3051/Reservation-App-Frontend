@@ -69,4 +69,13 @@ export class FriendRequestService {
     }
     return this.requests;
   }
+
+  postFriendRequest(requesterId: number, RequestedId: number) {
+    const queryParams = requesterId + '/' + RequestedId;
+
+    return this.http.post<{
+      message: string,
+      request: any
+    }>("http://localhost:3000/request/" + queryParams, {});
+  }
 }

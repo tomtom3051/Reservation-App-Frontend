@@ -12,7 +12,7 @@
       <button
         class="add-friend-button"
         (click)="changeFriend()"
-        *ngIf="!myProfile">{{ isFriend ? 'Remove Friend' : 'Add Friend' }}</button>
+        *ngIf="!myProfile">{{ getFriendStatus() }}</button>
     </div>
 </div>
 

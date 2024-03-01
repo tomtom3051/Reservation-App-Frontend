@@ -21,6 +21,7 @@
 .dropdown-container {
   width: 65vw;
   background-color: #383737;
+  border: 1px solid #ccc;
   border-bottom-left-radius: 15px;
   border-bottom-right-radius: 15px;
 }
@@ -29,7 +30,16 @@
   display: flex;
   align-items: center;
   padding: 10px;
-  border-bottom: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+}
+
+.user-container:hover {
+  background-color: #4c4b4b;
+}
+
+.dropdown-container div:last-child .user-container {
+  border-bottom-left-radius: 15px;
+  border-bottom-right-radius: 15px;
 }
 
 .user-image{
@@ -40,7 +50,7 @@
 }
 
 .user-details {
-  margin-left: 10px;
+  margin-left: 20px;
   flex-grow: 1; /* Added */
   overflow: hidden;
   text-overflow: ellipsis;
