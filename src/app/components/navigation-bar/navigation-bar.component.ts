@@ -40,6 +40,11 @@ export class NavigationBarComponent implements OnInit, OnDestroy {
     this.authService.logout();
   }
 
+  toggleNavbar() {
+    const navbarMenu = document.querySelector('.navbar-menu');
+    navbarMenu.classList.toggle('active');
+  }
+
   ngOnDestroy(): void {
     this.authListenerSubs.unsubscribe();
     this.idSub.unsubscribe();

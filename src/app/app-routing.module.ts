@@ -21,19 +21,19 @@ import { TestComponent } from './components/test/test.component';
 import { EditProfileComponent } from './components/auth/edit-profile/edit-profile.component';
 
 const routes: Routes = [
-  { path: '', component: AuthComponent },
+  { path: 'start', component: AuthComponent },
   { path: 'login', component: LoginComponent },
   { path: 'signup', component: SignupComponent },
   { path: 'register-business', component: RegisterBusinessComponent },
   { path: 'edit-profile/:id', component: EditProfileComponent },
   { path: 'business-info/:id', component: InfoFormComponent },
   { path: 'business-layout/:id', component: SvgLayoutComponent },
-  { path: 'explore', component: ExplorePageComponent, canActivate: [AuthGuard] },
-  { path: 'explore/:id', component: BusinessPageComponent, canActivate: [AuthGuard], children: [
+  { path: 'explore', component: ExplorePageComponent/*, canActivate: [AuthGuard] */ },
+  { path: 'explore/:id', component: BusinessPageComponent, /*canActivate: [AuthGuard],*/ children: [
     { path: '', redirectTo: 'info', pathMatch: 'full' },
     { path: 'info', component: BusinessInfoComponent },
     { path: 'menu', component: BusinessMenuPageComponent },
-    { path: 'reservation', component: BusinessReservationComponent },
+    { path: 'reservation', component: BusinessReservationComponent, canActivate: [AuthGuard] },
     // { path: 'images', component: BusinessImagesComponent}
   ] },
   { path: 'profile/:id', component: ProfilePageComponent, canActivate: [AuthGuard], children: [

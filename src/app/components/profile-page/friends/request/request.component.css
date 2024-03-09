@@ -2,7 +2,9 @@
   display: flex;
   align-items: center;
   padding: 10px;
-  border-bottom: 1px solid #ccc;
+  border: 1px solid #ccc;
+  width: 65vw;
+  border-radius: 15px;
 }
 
 .profile-picture img {
@@ -47,4 +49,5 @@ button {
 .accept-button:hover,
 .decline-button:hover {
   opacity: 0.8;
+  transform: scale(1.05);
 }

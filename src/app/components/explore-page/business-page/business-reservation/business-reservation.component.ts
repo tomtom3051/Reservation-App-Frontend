@@ -75,6 +75,15 @@ export class BusinessReservationComponent implements OnInit, OnDestroy {
     //Set initial weekday
     this.weekday = currentDate.toLocaleString('en-US', { weekday: 'long'});
 
+    this.businessHoursService.getBusinessHoursForDay(this.pageId, this.weekday).subscribe({
+      next: hoursData => {
+        this.getMaxMinTime(hoursData);
+      },
+      error: error => {
+        // console.log("reached!");
+        this.closed = true;
+      }
+    })
     this.businessHoursService.getBusinessHoursForDay(this.pageId, this.weekday).subscribe(hoursData => {
       this.getMaxMinTime(hoursData);
       // console.log(this.openingHour, this.openingMinute);

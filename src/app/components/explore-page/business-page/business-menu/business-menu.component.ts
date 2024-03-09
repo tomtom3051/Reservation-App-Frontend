@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-business-menu',
@@ -17,6 +18,18 @@ import { Component } from '@angular/core';
  * There will be a reservation tab with a form where you can book a reservation.
  *
  */
-export class BusinessMenuComponent {
+export class BusinessMenuComponent implements OnInit {
 
+  //Check if user visiting is logged in
+  userIsAuth: boolean = false;
+
+  //Connect authservice to component
+  constructor(
+    private authService: AuthService
+  ) {}
+
+  ngOnInit(): void {
+    //Check if user is logged in so we can control user can only access appropriate pages
+    this.userIsAuth = this.authService.getIsAuth();
+  }
 }

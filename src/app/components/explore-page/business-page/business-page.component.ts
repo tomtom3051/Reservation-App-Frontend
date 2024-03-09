@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Params, Router } from '@angular/router';
 import { BusinessModel } from 'src/app/models/business.model';
+import { AuthService } from 'src/app/services/auth.service';
 import { BusinessService } from 'src/app/services/business.service';
 import { FavoritesService } from 'src/app/services/favorite.service';
 
@@ -10,16 +11,22 @@ import { FavoritesService } from 'src/app/services/favorite.service';
   styleUrls: ['./business-page.component.css']
 })
 export class BusinessPageComponent implements OnInit {
+  //used to retrieve business id from params
   id: number;
+  //Used to store business info
   business: BusinessModel;
+  //Stores if logged in user favourites business
   isFavorite: boolean;
+  //Store if viewing user is authenticated
+  userIsAuth = false;
   isLoading: boolean = false;
 
   constructor(
     private businessService: BusinessService,
     private route: ActivatedRoute,
     private router: Router,
-    private favoritesService: FavoritesService) {}
+    private favoritesService: FavoritesService,
+    private authService: AuthService) {}
 
   ngOnInit(): void {
     this.isLoading = true;
@@ -37,6 +44,7 @@ export class BusinessPageComponent implements OnInit {
             profileImgPath: businessData.profileImgPath,
             description: businessData.description
           }
+          this.userIsAuth = this.authService.getIsAuth();
           this.isLoading = false;
         });
       }

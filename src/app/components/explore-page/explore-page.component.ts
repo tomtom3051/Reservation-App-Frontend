@@ -12,6 +12,9 @@ export class ExplorePageComponent implements OnInit, OnDestroy {
   businesses: BusinessModel[] = [];
   private businessSub: Subscription;
 
+  //Variable to link with search bar
+  searchInput: string = '';
+
   //Stores the location of the user
   lat: number;
   lng: number;
@@ -40,9 +43,10 @@ export class ExplorePageComponent implements OnInit, OnDestroy {
       });
 
     }
+  }
 
-
-
+  onInputUpdated() {
+    console.log(this.searchInput);
   }
 
   ngOnDestroy(): void {

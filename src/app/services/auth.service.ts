@@ -135,7 +135,7 @@ export class AuthService {
     this.userId = null;
     this.userIdListner.next(this.userId);
     this.clearAuthData();
-    this.router.navigate(["/"]);
+    this.router.navigate(["/start"]);
   }
 
 

@@ -1,13 +1,26 @@
-<div class="row">
+<!-- <div class="row">
   <div class="col-xs-12">
       <app-business-search-bar></app-business-search-bar>
   </div>
+</div> -->
+
+<div class="search-container">
+  <input
+    [(ngModel)]="searchInput"
+    (ngModelChange)="onInputUpdated()"
+    class="search-input"
+    placeholder="Search...">
+  <button
+    class="search-button">
+      Search
+  </button>
 </div>
+
 
 <hr>
 
 <div class="row">
-  <div *ngIf="lat && lng" class="col-xs-12">
+  <div *ngIf="lat && lng && businesses.length > 0" class="col-xs-12">
       <app-business
       *ngFor="let businessEl of businesses"
       [business]="businessEl"
@@ -15,5 +28,6 @@
   </div>
 </div>
 
-<h2 *ngIf="!lat && !lng">Please allow location services</h2>
+<h2 class="errorText" *ngIf="!lat && !lng">Please allow location services!</h2>
 
+<h2 class="errorText" *ngIf="lat && lng && businesses.length === 0">Nothing near you, yet!</h2>

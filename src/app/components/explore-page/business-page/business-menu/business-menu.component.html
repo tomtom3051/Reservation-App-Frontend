@@ -5,6 +5,7 @@
       class="business-menu-item">Info</a>
 
   <a
+      *ngIf="userIsAuth"
       routerLinkActive="active"
       routerLink="reservation"
       class="business-menu-item">Reservation</a>

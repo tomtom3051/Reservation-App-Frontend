@@ -1,4 +1,4 @@
-<div class="friend-request">
+<div class="friend-request" [routerLink]="['/profile', userRequest.id]">
   <div class="profile-picture">
     <img [src]="userRequest.profileImgPath" alt="Profile Picture">
   </div>
