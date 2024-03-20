@@ -10,12 +10,20 @@
 .search-friends {
   border: 1px solid #ccc;
   padding: 10px;
-  border-top-left-radius: 15px;
-  border-top-right-radius: 15px;
+  /* border-top-left-radius: 15px;
+  border-top-right-radius: 15px; */
+  border-radius: 15px;
   font-size: 1rem;
   width: 65vw;
   background-color: #555;
   color: #fff;
+}
+
+.search-friends:focus {
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+  border-bottom-left-radius: 0px;
+  border-bottom-right-radius: 0px;
 }
 
 .dropdown-container {

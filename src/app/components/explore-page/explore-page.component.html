@@ -20,7 +20,7 @@
 <hr>
 
 <div class="row">
-  <div *ngIf="lat && lng && businesses.length > 0" class="col-xs-12">
+  <div *ngIf="lat && lng && businesses.length > 0 && !isLoading" class="col-xs-12">
       <app-business
       *ngFor="let businessEl of businesses"
       [business]="businessEl"
@@ -28,6 +28,6 @@
   </div>
 </div>
 
-<h2 class="errorText" *ngIf="!lat && !lng">Please allow location services!</h2>
+<h2 class="errorText" *ngIf="!lat && !lng && !isLoading">Please allow location services!</h2>
 
-<h2 class="errorText" *ngIf="lat && lng && businesses.length === 0">Nothing near you, yet!</h2>
+<h2 class="errorText" *ngIf="lat && lng && businesses.length === 0 && !isLoading">Nothing near you, yet!</h2>

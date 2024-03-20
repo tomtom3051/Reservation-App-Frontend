@@ -21,6 +21,8 @@ export class ExplorePageComponent implements OnInit, OnDestroy {
   //Stores the radius of distance from users businesses have to be
   rad: number = 100;
 
+  isLoading: boolean = false;
+
   constructor(private businessService: BusinessService) {}
 
   ngOnInit(): void {
@@ -28,6 +30,7 @@ export class ExplorePageComponent implements OnInit, OnDestroy {
     if (!navigator.geolocation) {
       // console.log('Location not supported!')
     } else{
+      this.isLoading = true;
       navigator.geolocation.getCurrentPosition((position) => {
         this.lat = position.coords.latitude;
         this.lng = position.coords.longitude;
@@ -38,6 +41,7 @@ export class ExplorePageComponent implements OnInit, OnDestroy {
         this.businessSub = this.businessService.getBusinessUpdateListener()
           .subscribe((businessData: { businesses: BusinessModel[] }) => {
             this.businesses = businessData.businesses;
+            this.isLoading = false;
             // console.log(this.businesses);
           });
       });

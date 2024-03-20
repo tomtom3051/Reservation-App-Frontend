@@ -27,6 +27,9 @@ h5 {
 
 .input-group {
   display: flex;
+  border: 1px solid black;
+  padding: 20px;
+  border-radius: 15px;
 }
 
 .date-picker,
